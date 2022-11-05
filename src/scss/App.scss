@@ -1,5 +1,6 @@
 @import './variables';
 @import './components/all';
+@import './libs/normalize';
 
 body {
   margin: 0;
@@ -150,7 +151,7 @@ body {
       display: flex;
       align-items: center;
       cursor: pointer;
-      // @include noselect();
+      @include noselect();
   
       span {
         display: inline-block;

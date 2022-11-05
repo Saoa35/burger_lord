@@ -6,16 +6,21 @@ function App() {
       <header className="header">
         <div className="header__container">
           <div className="header__logo">
-            <img src="../img/burger-logo.jpg" alt="Logo" />
+            <img
+              width={50}
+              height={50}
+              src="../img/burger-logo.jpg"
+              alt="Logo"
+            />
             <div>
               <h1>Burger Lord</h1>
               <p>best burgers in the world</p>
             </div>
           </div>
           <div className="header__cart">
-            <div className="cart__price">
+            <a href="#" className="button button--cart">
               <span>55 $</span>
-            </div>
+            </a>
             <div className="cart__quantity">
               <img alt="Cart Logo" />
               <p>3</p>
@@ -56,19 +61,20 @@ function App() {
           <div className="content__items">
             <div className="card">
               <img
+                className="card__image"
                 src="https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/lto_texas_bbq_chicken/texas_bbq_chicken.png"
                 alt="Burger"
               />
               <h4 className="card__title">Texas BBQ Chicken</h4>
-              <div className="cart__selector">
+              <div className="card__selector">
                 <ul>
-                  <li>Standart</li>
+                  <li className="active">Standart</li>
                   <li>Double</li>
                 </ul>
                 <ul>
-                  <li>Single</li>
-                  <li>+ Coca Cola</li>
-                  <li>+ Coca Cola and French fries</li>
+                  <li className="active">Single</li>
+                  <li>+ Pepsi</li>
+                  <li>+ Pepsi and Fries</li>
                 </ul>
               </div>
               <div className="card__bottom">
