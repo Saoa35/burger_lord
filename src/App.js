@@ -6,7 +6,7 @@ function App() {
       <header>
         <div className="header__container">
           <div className="header__logo">
-            <img alt="Logo" />
+            <img src="./assets/img/burger-logo.jpg" alt="Logo" />
             <div>
               <h1>Burger Lord</h1>
               <p>best burgers in the world</p>
