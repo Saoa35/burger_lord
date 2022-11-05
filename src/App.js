@@ -1,37 +1,18 @@
+import Categories from "./components/Categories";
 import Header from "./components/Header";
+import Sort from "./components/Sort";
 import "./scss/app.scss";
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
+
       <main className="content">
         <div className="container">
           <div className="content__top">
-            <div className="categories">
-              <ul>
-                <li className="active">All</li>
-                <li>Chicken</li>
-                <li>Pork</li>
-                <li>Plant-Based</li>
-                <li>Cheese</li>
-                <li>Bacon</li>
-              </ul>
-            </div>
-            <div className="sort">
-              <div className="sort__label">
-                <svg />
-                <b>Sorting by:</b>
-                <span>popularity</span>
-              </div>
-              <div className="sort__popup">
-                <ul>
-                  <li className="active">popularity</li>
-                  <li>price</li>
-                  <li>alphabetical</li>
-                </ul>
-              </div>
-            </div>
+            <Categories />
+            <Sort />
           </div>
           <h2 className="content__title">All Burgers</h2>
           <div className="content__items">
