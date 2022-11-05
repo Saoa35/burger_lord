@@ -1,34 +1,10 @@
+import Header from "./components/Header";
 import "./scss/app.scss";
 
 function App() {
   return (
     <div className="wrapper">
-      <header className="header">
-        <div className="header__container">
-          <div className="header__logo">
-            <img
-              width={50}
-              height={50}
-              src="../img/burger-logo.jpg"
-              alt="Logo"
-            />
-            <div>
-              <h1>Burger Lord</h1>
-              <p>best burgers in the world</p>
-            </div>
-          </div>
-          <div className="header__cart">
-            <a href="#" className="button button--cart">
-              <span>55 $</span>
-            </a>
-            <div className="cart__quantity">
-              <img alt="Cart Logo" />
-              <p>3</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
+      <Header />
       <main className="content">
         <div className="container">
           <div className="content__top">
@@ -73,14 +49,14 @@ function App() {
                 </ul>
                 <ul>
                   <li className="active">Single</li>
-                  <li>+ Pepsi</li>
-                  <li>+ Pepsi and Fries</li>
+                  <li>+Pepsi</li>
+                  <li>+Pepsi+Fries</li>
                 </ul>
               </div>
               <div className="card__bottom">
-                <div className="cart__price">from 15 $</div>
-                <div className="add__button">
-                  <svg />
+                <div className="card__price">from 15 $</div>
+                <div className="button button--outline button--add">
+                  {/* <svg /> */}
                   <span>Add to Cart</span>
                   <i>2</i>
                 </div>
