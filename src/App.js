@@ -1,4 +1,4 @@
-import "./App.css";
+import "./scss/App.scss";
 
 function App() {
   return (
@@ -40,8 +40,15 @@ function App() {
             <div className="sort">
               <div className="sort__label">
                 <svg />
-                <b>Sorting by</b>
+                <b>Sorting by:</b>
                 <span>popularity</span>
+              </div>
+              <div className="sort__popup">
+                <ul>
+                  <li className="active">popularity</li>
+                  <li>price</li>
+                  <li>alphabetical</li>
+                </ul>
               </div>
             </div>
           </div>
