@@ -3,10 +3,10 @@ import "./scss/app.scss";
 function App() {
   return (
     <div className="wrapper">
-      <header>
+      <header className="header">
         <div className="header__container">
           <div className="header__logo">
-            <img width={38} src="../img/burger-logo.jpg" alt="Logo" />
+            <img src="../img/burger-logo.jpg" alt="Logo" />
             <div>
               <h1>Burger Lord</h1>
               <p>best burgers in the world</p>
@@ -60,7 +60,7 @@ function App() {
                 alt="Burger"
               />
               <h4 className="card__title">Texas BBQ Chicken</h4>
-              <div className="cartBlock__selector">
+              <div className="cart__selector">
                 <ul>
                   <li>Standart</li>
                   <li>Double</li>
