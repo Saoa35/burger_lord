@@ -1,29 +1,21 @@
 import { useState } from "react";
 
-function Card({ title, price, image, additives, types }) {
+function Card({ title, price, imageUrl, additives, types }) {
   const [activeAdditives, setActiveAdditives] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
   const typeNames = ["Standart", "Double"];
 
-  const onClickAdditives = (i) => {
-    setActiveAdditives(i);
-  };
-
-  const onClickActiveType = (i) => {
-    setActiveType(i);
-  };
-
   return (
     <div className="card">
-      <img className="card__image" src={image} alt="Burger" />
+      <img className="card__image" src={imageUrl} alt="Burger" />
       <h4 className="card__title">{title}</h4>
       <div className="card__selector">
         <ul>
           {types.map((el) => (
             <li
               key={el}
-              onClick={() => onClickActiveType(el)}
+              onClick={() => setActiveType(el)}
               className={activeType === el ? "active" : ""}
             >
               {typeNames[el]}
@@ -34,7 +26,7 @@ function Card({ title, price, image, additives, types }) {
           {additives.map((el, i) => (
             <li
               key={i}
-              onClick={() => onClickAdditives(i)}
+              onClick={() => setActiveAdditives(i)}
               className={activeAdditives === i ? "active" : ""}
             >
               {el}
