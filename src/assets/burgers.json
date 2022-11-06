@@ -5,7 +5,7 @@
       "title": "King's Italiano",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 6.80,
+      "price": 6.50,
       "category": 2,
       "rating": 4
     },
@@ -15,7 +15,7 @@
       "title": "Chicken King",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 4.70,
+      "price": 4.80,
       "category": 1,
       "rating": 6
     },
@@ -25,7 +25,7 @@
       "title": "Bacon Crispy",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 5,
+      "price": 5.90,
       "category": 5,
       "rating": 4
     },
@@ -45,7 +45,7 @@
       "title": "Texas BBQ Chicken",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 7,
+      "price": 7.50,
       "category": 1,
       "rating": 8
     },
@@ -55,7 +55,7 @@
       "title": "Bacon King Junior",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 3.80,
+      "price": 3.50,
       "category": 5,
       "rating": 2
     },
@@ -65,7 +65,7 @@
       "title": "Whopper",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 4,
+      "price": 4.60,
       "category": 2,
       "rating": 9
     },
@@ -75,7 +75,7 @@
       "title": "Cheeseburger",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 4.10,
+      "price": 4.50,
       "category": 4,
       "rating": 10
     },
@@ -85,7 +85,7 @@
       "title": "Plant-Based Chili Cheese Burger",
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 3.90,
+      "price": 3.50,
       "category": 3,
       "rating": 9
     },
@@ -95,7 +95,7 @@
       "title": "Plant-Based Royale",
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 3.50,
+      "price": 3.80,
       "category": 3,
       "rating": 7
     },
@@ -105,7 +105,7 @@
       "title": "Plant-Based Hamburger",
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 3,
+      "price": 3.50,
       "category": 3,
       "rating": 3
     },
@@ -115,7 +115,7 @@
       "title": "Big King",
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 3.50,
+      "price": 3.90,
       "category": 2,
       "rating": 10
     },
@@ -125,7 +125,7 @@
       "title": "Cheese Crispy Chicken",
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 4,
+      "price": 4.90,
       "category": 4,
       "rating": 8
     },
@@ -135,7 +135,7 @@
       "title": "Steakhouse",
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 5,
+      "price": 5.50,
       "category": 2,
       "rating": 6
     },
@@ -155,8 +155,28 @@
       "title": "Plant-Based Whopper",
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 3.20,
+      "price": 3.90,
       "category": 3,
       "rating": 4
+    },
+    {
+      "id": 16,
+      "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/Chicken%20Royale%20Bacon%26Cheese/Bacon_Cheese_Royale.png",
+      "title": "Bacon&Cheese Chicken Royale",
+      "types": [0],
+      "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
+      "price": 6.50,
+      "category": 5,
+      "rating": 5
+    },
+    {
+      "id": 17,
+      "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/royale_new_packshot/BK_solo_long.png",
+      "title": "Chicken Royale",
+      "types": [0],
+      "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
+      "price": 3.50,
+      "category": 1,
+      "rating": 3
     }
   ]
