@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-function Card({ title, price, image, additives }) {
-  const [burgerCount, setBurgerCount] = useState(0);
+function Card({ title, price, image, additives, types }) {
   const [activeAdditives, setActiveAdditives] = useState(0);
+  const [activeType, setActiveType] = useState(0);
+
+  const typeNames = ["Standart", "Double"];
 
   const onClickAdditives = (i) => {
     setActiveAdditives(i);
+  };
+
+  const onClickActiveType = (i) => {
+    setActiveType(i);
   };
 
   return (
@@ -14,8 +20,15 @@ function Card({ title, price, image, additives }) {
       <h4 className="card__title">{title}</h4>
       <div className="card__selector">
         <ul>
-          <li className="active">Standart</li>
-          <li>Double</li>
+          {types.map((el) => (
+            <li
+              key={el}
+              onClick={() => onClickActiveType(el)}
+              className={activeType === el ? "active" : ""}
+            >
+              {typeNames[el]}
+            </li>
+          ))}
         </ul>
         <ul>
           {additives.map((el, i) => (
@@ -31,10 +44,7 @@ function Card({ title, price, image, additives }) {
       </div>
       <div className="card__bottom">
         <div className="card__price">from {price} $</div>
-        <button
-          onClick={() => setBurgerCount(burgerCount + 1)}
-          className="button button--outline button--add"
-        >
+        <button className="button button--outline button--add">
           <svg
             width="12"
             height="12"
@@ -48,7 +58,7 @@ function Card({ title, price, image, additives }) {
             />
           </svg>
           <span>Add to Cart</span>
-          <i>{burgerCount}</i>
+          <i>0</i>
         </button>
       </div>
     </div>

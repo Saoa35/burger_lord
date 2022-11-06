@@ -25,6 +25,7 @@ function App() {
                 price={obj.price}
                 image={obj.imageUrl}
                 additives={obj.additives}
+                types={obj.types}
               />
             ))}
           </div>
