@@ -18,8 +18,8 @@ function App() {
           </div>
           <h2 className="content__title">All Burgers</h2>
           <div className="content__items">
-            {burgers.map((obj, index) => (
-              <Card key={index} {...obj} />
+            {burgers.map((obj) => (
+              <Card key={obj.id} {...obj} />
             ))}
           </div>
         </div>
