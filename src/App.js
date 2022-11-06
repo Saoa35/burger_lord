@@ -17,14 +17,14 @@ function App() {
           </div>
           <h2 className="content__title">All Burgers</h2>
           <div className="content__items">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card title={"Texas BBQ Chicken"} price={15} />
+            <Card title={"Texas BBQ Chicken"} price={15} />
+            <Card title={"Texas BBQ Chicken"} price={15} />
+            <Card title={"Texas BBQ Chicken"} price={15} />
+            <Card title={"Texas BBQ Chicken"} price={15} />
+            <Card title={"Texas BBQ Chicken"} price={15} />
+            <Card title={"Texas BBQ Chicken"} price={15} />
+            <Card title={"Texas BBQ Chicken"} price={15} />
           </div>
         </div>
       </main>

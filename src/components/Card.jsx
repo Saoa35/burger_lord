@@ -1,4 +1,9 @@
-function Card() {
+import { useState } from "react";
+
+function Card({ title, price }) {
+
+  const [burgerCount, setBurgerCount] = useState(0);
+
   return (
     <div className="card">
       <img
@@ -6,7 +11,7 @@ function Card() {
         src="https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/lto_texas_bbq_chicken/texas_bbq_chicken.png"
         alt="Burger"
       />
-      <h4 className="card__title">Texas BBQ Chicken</h4>
+      <h4 className="card__title">{title}</h4>
       <div className="card__selector">
         <ul>
           <li className="active">Standart</li>
@@ -19,8 +24,8 @@ function Card() {
         </ul>
       </div>
       <div className="card__bottom">
-        <div className="card__price">from 15 $</div>
-        <div className="button button--outline button--add">
+        <div className="card__price">from {price} $</div>
+        <button onClick={() => setBurgerCount(burgerCount + 1)} className="button button--outline button--add">
           <svg
             width="12"
             height="12"
@@ -33,8 +38,8 @@ function Card() {
             />
           </svg>
           <span>Add to Cart</span>
-          <i>2</i>
-        </div>
+          <i>{burgerCount}</i>
+        </button>
       </div>
     </div>
   )

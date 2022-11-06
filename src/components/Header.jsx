@@ -3,7 +3,7 @@ function Header() {
     <header className="header">
       <div className="container">
         <div className="header__logo">
-          <img width={55} height={50} src="../img/burger-logo.jpg" alt="Logo" />
+          <img width={58} height={50} src="../img/burger-logo.jpg" alt="Logo" />
           <div>
             <h1>Burger Lord</h1>
             <p>best burgers in the world</p>
@@ -12,7 +12,7 @@ function Header() {
         <div className="header__cart">
           <a href="/" className="button button--cart">
             <span>55 $</span>
-            <div className="button__delimitier"></div>
+            <div className="button__delimiter"></div>
             <svg
               width="18"
               height="18"
