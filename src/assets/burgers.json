@@ -6,7 +6,7 @@
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 6.80,
-      "category": 0,
+      "category": 2,
       "rating": 4
     },
     {
@@ -16,7 +16,7 @@
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 4.70,
-      "category": 0,
+      "category": 1,
       "rating": 6
     },
     {
@@ -26,7 +26,7 @@
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 5,
-      "category": 1,
+      "category": 5,
       "rating": 4
     },
     {
@@ -36,7 +36,7 @@
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 5.20,
-      "category": 2,
+      "category": 1,
       "rating": 2
     },
     {
@@ -46,7 +46,7 @@
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 7,
-      "category": 3,
+      "category": 1,
       "rating": 8
     },
     {
@@ -56,7 +56,7 @@
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 3.80,
-      "category": 2,
+      "category": 5,
       "rating": 2
     },
     {
@@ -66,13 +66,13 @@
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 4,
-      "category": 1,
+      "category": 2,
       "rating": 9
     },
     {
       "id": 7,
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/plantbased_new/PBcheeseburger.png",
-      "title": "Plant-Based Cheeseburger",
+      "title": "Cheeseburger",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 4.10,
@@ -86,7 +86,7 @@
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 3.90,
-      "category": 5,
+      "category": 3,
       "rating": 10
     },
     {
@@ -96,7 +96,7 @@
       "types": [0],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 3.50,
-      "category": 5,
+      "category": 3,
       "rating": 7
     }
   ]
