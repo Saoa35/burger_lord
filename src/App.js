@@ -6,16 +6,16 @@ import "./scss/app.scss";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [burgers, setBurgers] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch("https://6367d9abedc85dbc84dd1748.mockapi.io/items")
       .then((res) => res.json())
-      .then((data) => setBurgers(data));
-    // .catch(error) {
-    //   console.log(error.mesage);
-    // }
-  });
+      .then((data) => setItems(data))
+      .catch((error) => {
+        console.log(error.mesage);
+      });
+  }, []);
 
   return (
     <div className="wrapper">
@@ -29,7 +29,7 @@ function App() {
           </div>
           <h2 className="content__title">All Burgers</h2>
           <div className="content__items">
-            {burgers.map((obj) => (
+            {items.map((obj) => (
               <Card key={obj.id} {...obj} />
             ))}
           </div>
