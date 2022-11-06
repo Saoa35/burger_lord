@@ -3,6 +3,7 @@ import Categories from "./components/Categories";
 import Header from "./components/Header";
 import Sort from "./components/Sort";
 import "./scss/app.scss";
+import burgers from "./assets/burgers";
 
 function App() {
   return (
@@ -17,14 +18,15 @@ function App() {
           </div>
           <h2 className="content__title">All Burgers</h2>
           <div className="content__items">
-            <Card title={"Texas BBQ Chicken"} price={15} />
-            <Card title={"Texas BBQ Chicken"} price={15} />
-            <Card title={"Texas BBQ Chicken"} price={15} />
-            <Card title={"Texas BBQ Chicken"} price={15} />
-            <Card title={"Texas BBQ Chicken"} price={15} />
-            <Card title={"Texas BBQ Chicken"} price={15} />
-            <Card title={"Texas BBQ Chicken"} price={15} />
-            <Card title={"Texas BBQ Chicken"} price={15} />
+            {burgers.map((obj, index) => (
+              <Card
+                key={index}
+                title={obj.title}
+                price={obj.price}
+                image={obj.imageUrl}
+                additives={obj.additives}
+              />
+            ))}
           </div>
         </div>
       </main>
