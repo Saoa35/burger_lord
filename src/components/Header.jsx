@@ -1,9 +1,11 @@
+import logoImg from '../assets/img/burger-logo.jpg';
+
 function Header() {
   return (
     <header className="header">
       <div className="container">
         <div className="header__logo">
-          <img width={58} height={50} src="../img/burger-logo.jpg" alt="Logo" />
+          <img width={58} height={50} src={logoImg} alt="Logo" />
           <div>
             <h1>Burger Lord</h1>
             <p>best burgers in the world</p>
