@@ -1,4 +1,10 @@
+import { useState } from "react";
+
 function Sort() {
+  const [open, setOpen] = useState(false);
+
+  const list = ["popularity", "price", "alphabetical"];
+
   return (
     <div className="sort">
       <div className="sort__label">
@@ -15,15 +21,20 @@ function Sort() {
           />
         </svg>
         <b>Sorting by:</b>
-        <span>popularity</span>
+        <span onClick={() => setOpen(!open)}>popularity</span>
       </div>
-      <div className="sort__popup">
-        <ul>
-          <li className="active">popularity</li>
-          <li>price</li>
-          <li>alphabetical</li>
-        </ul>
-      </div>
+      {open && (
+        <div className="sort__popup">
+          <ul>
+            {list.map((el, i) => (
+              <li key={i}>{el}</li>
+            ))}
+            {/* <li className="active">popularity</li>
+            <li>price</li>
+            <li>alphabetical</li> */}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

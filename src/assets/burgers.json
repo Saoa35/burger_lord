@@ -1,11 +1,11 @@
 [
     {
       "id": 0,
-      "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/lto_texas_bbq_chicken/texas_bbq_chicken.png",
-      "title": "Texas BBQ Chicken",
+      "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/kingsitaltiano/kc_italiano.png",
+      "title": "King's Italiano",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
-      "price": 4.50,
+      "price": 6.80,
       "category": 0,
       "rating": 4
     },
@@ -41,8 +41,8 @@
     },
     {
       "id": 4,
-      "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/kingsitaltiano/kc_italiano.png",
-      "title": "King's Italiano",
+      "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/lto_texas_bbq_chicken/texas_bbq_chicken.png",
+      "title": "Texas BBQ Chicken",
       "types": [0, 1],
       "additives": ["Single", "+Pepsi", "+Pepsi+Fries"],
       "price": 7,
