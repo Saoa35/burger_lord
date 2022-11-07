@@ -1,10 +1,10 @@
+import styles from "./NotFoundBlock.module.scss";
+
 export const NotFoundBlock = () => {
   return (
-    <div>
-      <h1>
-        <span>;(</span>
-        Page is not found...
-      </h1>
-    </div>
+    <h1 className={styles.root}>
+      <p>;(</p>
+      Page is not found...
+    </h1>
   );
 };

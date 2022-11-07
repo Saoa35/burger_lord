@@ -1,7 +1,8 @@
 import Header from "./components/Header";
 import "./scss/app.scss";
 import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+import { Route, Routes } from "react-router-dom";
+// import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -10,6 +11,10 @@ function App() {
 
       <main className="content">
         <div className="container">
+          <Routes>
+            <Route></Route>
+          </Routes>
+
           <Home />
           {/* <NotFound /> */}
         </div>
