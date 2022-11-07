@@ -12,10 +12,9 @@ function App() {
       <main className="content">
         <div className="container">
           <Routes>
-            <Route></Route>
+            <Route path="/" element={<Home />} />
           </Routes>
 
-          <Home />
           {/* <NotFound /> */}
         </div>
       </main>
