@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import "./scss/app.scss";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-// import NotFound from "./pages/NotFound";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -13,9 +13,8 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
-
-          {/* <NotFound /> */}
         </div>
       </main>
 
