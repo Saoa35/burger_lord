@@ -18,7 +18,9 @@ function Home() {
       .catch((error) => {
         console.log(error.mesage);
       });
+    window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className="container">
       <div className="content__top">
