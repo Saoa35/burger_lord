@@ -20,6 +20,23 @@ export const Cart = () => {
             <h3>Colorado King Chicken</h3>
             <p>Standart,Single</p>
           </div>
+          <div className="cart__item-count">
+            <div className="button button--outline button--circle cart__item-count-minus">
+              {/* <svg></svg> */}
+            </div>
+            <b>2</b>
+            <div className="button button--outline button--circle cart__item-count-plus">
+              {/* <svg></svg> */}
+            </div>
+          </div>
+          <div className="cart__item-price">
+            <b>5.2 $</b>
+          </div>
+          <div className="cart__item-remove">
+            <div className="button button--outline button--circle">
+              {/* <svg></svg> */}
+            </div>
+          </div>
         </div>
       </div>
     </div>
