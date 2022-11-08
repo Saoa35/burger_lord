@@ -20,7 +20,7 @@ function Home() {
       });
   }, []);
   return (
-    <>
+    <div className="container">
       <div className="content__top">
         <Categories />
         <Sort />
@@ -31,7 +31,7 @@ function Home() {
           ? [...Array(6)].map((_, i) => <Skeleton key={i} />)
           : items.map((obj) => <Card key={obj.id} {...obj} />)}
       </div>
-    </>
+    </div>
   );
 }
 
