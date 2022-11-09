@@ -7,6 +7,8 @@ import Sort from "../components/Sort";
 function Home() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [categoryId, setCategoryId] = useState(0);
+  const [sortType, setSortType] = useState(0);
 
   useEffect(() => {
     fetch("https://6367d9abedc85dbc84dd1748.mockapi.io/items")
