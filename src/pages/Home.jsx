@@ -28,7 +28,7 @@ function Home() {
         console.log(error.mesage);
       });
     window.scrollTo(0, 0);
-  }, [categoryId]);
+  }, [categoryId, sortType]);
 
   const onClickCategory = (i) => {
     setCategoryId(i);

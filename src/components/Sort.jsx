@@ -3,7 +3,11 @@ import { useState } from "react";
 function Sort({ value, onChangeSort }) {
   const [open, setOpen] = useState(false);
 
-  const list = ["popularity", "price", "alphabetical"];
+  const list = [
+    { name: "popularity", sort: "rating" },
+    { name: "price", sort: "price" },
+    { name: "alphabetically", sort: "title" },
+  ];
   const listSelected = list[value];
 
   const onClickSortItems = (i) => {
