@@ -23,10 +23,17 @@ function Home() {
     window.scrollTo(0, 0);
   }, []);
 
+  const onClickCategory = (i) => {
+    setCategoryId(i);
+  };
+
   return (
     <div className="container">
       <div className="content__top">
-        <Categories value={categoryId} />
+        <Categories
+          value={categoryId}
+          onClickCategory={(i) => onClickCategory(i)}
+        />
         <Sort />
       </div>
       <h2 className="content__title">All Burgers</h2>
