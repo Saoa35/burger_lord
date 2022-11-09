@@ -11,8 +11,13 @@ function Home() {
   const [sortType, setSortType] = useState(0);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(
       "https://6367d9abedc85dbc84dd1748.mockapi.io/items?category=" + categoryId
+      // (categoryId = 0
+      //   ? "https://6367d9abedc85dbc84dd1748.mockapi.io/items"
+      //   : "https://6367d9abedc85dbc84dd1748.mockapi.io/items?category=" +
+      //     categoryId)
     )
       .then((res) => res.json())
       .then((data) => {
@@ -36,7 +41,7 @@ function Home() {
           value={categoryId}
           onClickCategory={(i) => onClickCategory(i)}
         />
-        <Sort />
+        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
       </div>
       <h2 className="content__title">All Burgers</h2>
       <div className="content__items">
