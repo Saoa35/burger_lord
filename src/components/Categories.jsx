@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-function Categories() {
+function Categories({ value }) {
+  console.log(value);
+
   const [activeIndex, setActiveIndex] = useState(0);
 
   const categories = [

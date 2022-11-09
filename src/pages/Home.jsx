@@ -26,7 +26,7 @@ function Home() {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories />
+        <Categories value={categoryId} />
         <Sort />
       </div>
       <h2 className="content__title">All Burgers</h2>
