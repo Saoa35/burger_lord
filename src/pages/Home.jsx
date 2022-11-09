@@ -11,7 +11,9 @@ function Home() {
   const [sortType, setSortType] = useState(0);
 
   useEffect(() => {
-    fetch("https://6367d9abedc85dbc84dd1748.mockapi.io/items")
+    fetch(
+      "https://6367d9abedc85dbc84dd1748.mockapi.io/items?category=" + categoryId
+    )
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -21,7 +23,7 @@ function Home() {
         console.log(error.mesage);
       });
     window.scrollTo(0, 0);
-  }, []);
+  }, [categoryId]);
 
   const onClickCategory = (i) => {
     setCategoryId(i);
