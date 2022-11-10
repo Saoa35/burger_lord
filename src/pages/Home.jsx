@@ -8,16 +8,19 @@ function Home() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
-  const [sortType, setSortType] = useState(0);
+  const [sortType, setSortType] = useState({
+    name: "popularity",
+    sortProperty: "rating",
+  });
 
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      "https://6367d9abedc85dbc84dd1748.mockapi.io/items?category=" + categoryId
-      // (categoryId = 0
-      //   ? "https://6367d9abedc85dbc84dd1748.mockapi.io/items"
-      //   : "https://6367d9abedc85dbc84dd1748.mockapi.io/items?category=" +
-      //     categoryId)
+      `https://6367d9abedc85dbc84dd1748.mockapi.io/items?${
+        categoryId > 0 ? `category=${categoryId}` : ""
+      }&sortBy=${sortType.sortProperty.replace("-", "")}&order=${
+        sortType.sortProperty.includes("-") ? "asc" : "desc"
+      } `
     )
       .then((res) => res.json())
       .then((data) => {

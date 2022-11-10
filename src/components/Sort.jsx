@@ -4,11 +4,13 @@ function Sort({ value, onChangeSort }) {
   const [open, setOpen] = useState(false);
 
   const list = [
-    { name: "popularity", sort: "rating" },
-    { name: "price", sort: "price" },
-    { name: "alphabetically", sort: "title" },
+    { name: "popularity (DESC)", sortProperty: "rating" },
+    { name: "popularity (ASC)", sortProperty: "-rating" },
+    { name: "price (DESC)", sortProperty: "price" },
+    { name: "price (ASC)", sortProperty: "-price" },
+    { name: "alphabetically (DESC)", sortProperty: "title" },
+    { name: "alphabetically (ASC)", sortProperty: "-title" },
   ];
-  const listSelected = list[value];
 
   const onClickSortItems = (i) => {
     onChangeSort(i);
@@ -31,18 +33,20 @@ function Sort({ value, onChangeSort }) {
           />
         </svg>
         <b>Sorting by:</b>
-        <span onClick={() => setOpen(!open)}>{listSelected}</span>
+        <span onClick={() => setOpen(!open)}>{value.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
           <ul>
-            {list.map((el, i) => (
+            {list.map((obj, i) => (
               <li
                 key={i}
-                className={value === i ? "active" : ""}
-                onClick={() => onClickSortItems(i)}
+                className={
+                  value.sortProperty === obj.sortProperty ? "active" : ""
+                }
+                onClick={() => onClickSortItems(obj)}
               >
-                {el}
+                {obj.name}
               </li>
             ))}
           </ul>
