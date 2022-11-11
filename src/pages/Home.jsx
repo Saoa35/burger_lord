@@ -18,6 +18,8 @@ function Home({ serchValue }) {
     fetch(
       `https://6367d9abedc85dbc84dd1748.mockapi.io/items?${
         categoryId > 0 ? `category=${categoryId}` : ""
+      }${
+        serchValue ? `search=${serchValue}` : ""
       }&sortBy=${sortType.sortProperty.replace("-", "")}&order=${
         sortType.sortProperty.includes("-") ? "asc" : "desc"
       } `
@@ -31,19 +33,19 @@ function Home({ serchValue }) {
         console.log(error.mesage);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType]);
+  }, [categoryId, sortType, serchValue]);
 
   const onClickCategory = (i) => {
     setCategoryId(i);
   };
 
   const burgers = items
-    .filter((object) => {
-      if (object.title.toLowerCase().includes(serchValue.toLowerCase())) {
-        return true;
-      }
-      return false;
-    })
+    // .filter((object) => {
+    //   if (object.title.toLowerCase().includes(serchValue.toLowerCase())) {
+    //     return true;
+    //   }
+    //   return false;
+    // })
     .map((obj) => <Card key={obj.id} {...obj} />);
   const skeletons = [...Array(6)].map((_, i) => <Skeleton key={i} />);
 
