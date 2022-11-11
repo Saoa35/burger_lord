@@ -37,7 +37,15 @@ function Home({ serchValue }) {
     setCategoryId(i);
   };
 
-  const burgers = items.map((obj) => <Card key={obj.id} {...obj} />);
+  const burgers = items
+    .filter((object) => {
+      if (object.title.toLowerCase().includes(serchValue.toLowerCase())) {
+        return true;
+      }
+      return false;
+    })
+    .map((obj) => <Card key={obj.id} {...obj} />);
+  const skeletons = [...Array(6)].map((_, i) => <Skeleton key={i} />);
 
   return (
     <div className="container">
@@ -49,11 +57,7 @@ function Home({ serchValue }) {
         <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
       </div>
       <h2 className="content__title">All Burgers</h2>
-      <div className="content__items">
-        {isLoading
-          ? [...Array(6)].map((_, i) => <Skeleton key={i} />)
-          : burgers}
-      </div>
+      <div className="content__items">{isLoading ? skeletons : burgers}</div>
     </div>
   );
 }
