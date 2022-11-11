@@ -4,7 +4,7 @@ import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 
-function Home() {
+function Home({ serchValue }) {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
@@ -37,6 +37,8 @@ function Home() {
     setCategoryId(i);
   };
 
+  const burgers = items.map((obj) => <Card key={obj.id} {...obj} />);
+
   return (
     <div className="container">
       <div className="content__top">
@@ -50,7 +52,7 @@ function Home() {
       <div className="content__items">
         {isLoading
           ? [...Array(6)].map((_, i) => <Skeleton key={i} />)
-          : items.map((obj) => <Card key={obj.id} {...obj} />)}
+          : burgers}
       </div>
     </div>
   );
