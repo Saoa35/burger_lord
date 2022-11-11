@@ -4,8 +4,11 @@ import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import { Cart } from "./pages/Cart";
+import { useState } from "react";
 
 function App() {
+  const [serchValue, setSerchValue] = useState("");
+
   return (
     <div className="wrapper">
       <Header />
