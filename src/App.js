@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      <Header />
+      <Header serchValue={serchValue} setSerchValue={setSerchValue} />
 
       <main className="content">
         <Routes>
