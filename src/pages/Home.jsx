@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
+import { Pagination } from "../components/Pagination";
 import Sort from "../components/Sort";
 
 function Home({ serchValue }) {
@@ -60,6 +61,7 @@ function Home({ serchValue }) {
       </div>
       <h2 className="content__title">All Burgers</h2>
       <div className="content__items">{isLoading ? skeletons : burgers}</div>
+      <Pagination />
     </div>
   );
 }
