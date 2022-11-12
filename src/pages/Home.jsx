@@ -13,11 +13,12 @@ function Home({ serchValue }) {
     name: "popularity",
     sortProperty: "rating",
   });
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `https://6367d9abedc85dbc84dd1748.mockapi.io/items?${
+      `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
         categoryId > 0 ? `category=${categoryId}` : ""
       }${
         serchValue ? `search=${serchValue}` : ""
@@ -34,7 +35,7 @@ function Home({ serchValue }) {
         console.log(error.mesage);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, serchValue]);
+  }, [categoryId, sortType, serchValue, currentPage]);
 
   const onClickCategory = (i) => {
     setCategoryId(i);
@@ -61,7 +62,7 @@ function Home({ serchValue }) {
       </div>
       <h2 className="content__title">All Burgers</h2>
       <div className="content__items">{isLoading ? skeletons : burgers}</div>
-      <Pagination />
+      <Pagination onChangePage={(number) => setCurrentPage(number)} />
     </div>
   );
 }

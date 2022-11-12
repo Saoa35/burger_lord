@@ -4,7 +4,9 @@ import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import { Cart } from "./pages/Cart";
-import { useState } from "react";
+import { createContext, useState } from "react";
+
+const SearchContext = createContext("");
 
 function App() {
   const [serchValue, setSerchValue] = useState("");
