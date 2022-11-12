@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
+import { SearchContext } from "../App";
 import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
 import Sort from "../components/Sort";
 
-function Home({ serchValue }) {
+function Home() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
@@ -14,6 +16,8 @@ function Home({ serchValue }) {
     sortProperty: "rating",
   });
   const [currentPage, setCurrentPage] = useState(1);
+
+  const { serchValue } = useContext(SearchContext);
 
   useEffect(() => {
     setIsLoading(true);
