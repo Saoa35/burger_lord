@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { SearchContext } from "../../App";
 import styles from "./Search.module.scss";
 
-export const Search = ({ serchValue, setSerchValue }) => {
+export const Search = () => {
+  const { serchValue, setSerchValue } = useContext(SearchContext);
+
   return (
     <div className={styles.root}>
       <svg
