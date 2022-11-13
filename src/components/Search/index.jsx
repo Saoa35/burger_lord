@@ -1,9 +1,11 @@
+import { useRef } from "react";
 import { useContext } from "react";
 import { SearchContext } from "../../App";
 import styles from "./Search.module.scss";
 
 export const Search = () => {
   const { serchValue, setSerchValue } = useContext(SearchContext);
+  const inputRef = useRef();
 
   return (
     <div className={styles.root}>

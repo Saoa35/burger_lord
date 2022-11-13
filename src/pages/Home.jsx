@@ -28,22 +28,24 @@ function Home() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
-        categoryId > 0 ? `category=${categoryId}` : ""
-      }${serchValue ? `search=${serchValue}` : ""}&sortBy=${sortType.replace(
-        "-",
-        ""
-      )}&order=${sortType.includes("-") ? "asc" : "desc"} `
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setItems(data);
+
+    axios
+      .get(
+        `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
+          categoryId > 0 ? `category=${categoryId}` : ""
+        }${serchValue ? `search=${serchValue}` : ""}&sortBy=${sortType.replace(
+          "-",
+          ""
+        )}&order=${sortType.includes("-") ? "asc" : "desc"} `
+      )
+      .then((res) => {
+        setItems(res.data);
         setIsLoading(false);
       })
       .catch((error) => {
         console.log(error.mesage);
       });
+
     window.scrollTo(0, 0);
   }, [categoryId, sortType, serchValue, currentPage]);
 
