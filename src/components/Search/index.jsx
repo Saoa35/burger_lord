@@ -7,6 +7,11 @@ export const Search = () => {
   const { serchValue, setSerchValue } = useContext(SearchContext);
   const inputRef = useRef();
 
+  const onClickClear = () => {
+    setSerchValue("");
+    inputRef.current.focus();
+  };
+
   return (
     <div className={styles.root}>
       <svg
@@ -22,6 +27,7 @@ export const Search = () => {
         <line x1="21" x2="16.65" y1="21" y2="16.65" />
       </svg>
       <input
+        ref={inputRef}
         value={serchValue}
         onChange={(e) => setSerchValue(e.target.value)}
         className={styles.input}
@@ -29,7 +35,7 @@ export const Search = () => {
       />
       {serchValue && (
         <svg
-          onClick={() => setSerchValue("")}
+          onClick={onClickClear}
           className={styles.clearIcon}
           fill="none"
           height="24"
