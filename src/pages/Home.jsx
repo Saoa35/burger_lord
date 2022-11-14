@@ -7,18 +7,17 @@ import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
 import Sort from "../components/Sort";
-import { setCategoryId } from "../redux/slices/filterSlice";
+import { setCategoryId, setPageCount } from "../redux/slices/filterSlice";
 import axios from "axios";
 
 function Home() {
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
+  const pageCount = useSelector((state) => state.filter.pageCount);
 
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const [currentPage, setCurrentPage] = useState(1);
 
   const { serchValue } = useContext(SearchContext);
 
@@ -26,12 +25,16 @@ function Home() {
     dispatch(setCategoryId(id));
   };
 
+  const onChangePage = (number) => {
+    dispatch(setPageCount(number));
+  };
+
   useEffect(() => {
     setIsLoading(true);
 
     axios
       .get(
-        `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
+        `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${pageCount}&limit=6&${
           categoryId > 0 ? `category=${categoryId}` : ""
         }${serchValue ? `search=${serchValue}` : ""}&sortBy=${sortType.replace(
           "-",
@@ -47,7 +50,7 @@ function Home() {
       });
 
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, serchValue, currentPage]);
+  }, [categoryId, sortType, serchValue, pageCount]);
 
   const burgers = items
     // .filter((object) => {
@@ -67,7 +70,7 @@ function Home() {
       </div>
       <h2 className="content__title">All Burgers</h2>
       <div className="content__items">{isLoading ? skeletons : burgers}</div>
-      <Pagination onChangePage={(number) => setCurrentPage(number)} />
+      <Pagination value={pageCount} onChangePage={onChangePage} />
     </div>
   );
 }
