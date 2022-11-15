@@ -33,6 +33,12 @@ function Home() {
   };
 
   useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+    }
+  });
+
+  useEffect(() => {
     setIsLoading(true);
 
     axios
@@ -61,6 +67,8 @@ function Home() {
       categoryId,
       currentPage,
     });
+
+    navigate(`?${queryString}`);
   }, [categoryId, sortType, serchValue, currentPage]);
 
   const burgers = items
