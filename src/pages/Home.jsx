@@ -7,7 +7,11 @@ import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
 import Sort from "../components/Sort";
-import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
+import {
+  setCategoryId,
+  setCurrentPage,
+  setFilters,
+} from "../redux/slices/filterSlice";
 import axios from "axios";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
