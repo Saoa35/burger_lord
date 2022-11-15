@@ -9,6 +9,7 @@ import { Pagination } from "../components/Pagination";
 import Sort from "../components/Sort";
 import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
 import axios from "axios";
+import qs from "qs";
 
 function Home() {
   const dispatch = useDispatch();
@@ -50,6 +51,14 @@ function Home() {
       });
 
     window.scrollTo(0, 0);
+  }, [categoryId, sortType, serchValue, currentPage]);
+
+  useEffect(() => {
+    const queryString = qs.stringify({
+      sortProperty: sortType,
+      categoryId,
+      currentPage,
+    });
   }, [categoryId, sortType, serchValue, currentPage]);
 
   const burgers = items
