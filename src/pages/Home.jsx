@@ -10,8 +10,10 @@ import Sort from "../components/Sort";
 import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
 import axios from "axios";
 import qs from "qs";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
