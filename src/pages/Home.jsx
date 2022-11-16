@@ -6,7 +6,7 @@ import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
-import Sort from "../components/Sort";
+import Sort, { list } from "../components/Sort";
 import {
   setCategoryId,
   setCurrentPage,
@@ -45,6 +45,7 @@ function Home() {
       dispatch(
         setFilters({
           ...params,
+          sort,
         })
       );
     }

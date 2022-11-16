@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSortType } from "../redux/slices/filterSlice";
 
-const list = [
+export const list = [
   { name: "popularity (DESC)", sortProperty: "rating" },
   { name: "popularity (ASC)", sortProperty: "-rating" },
   { name: "price (DESC)", sortProperty: "price" },
@@ -11,7 +12,7 @@ const list = [
   { name: "alphabetically (ASC)", sortProperty: "-title" },
 ];
 
-function Sort() {
+const Sort = memo(({ value }) => {
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
 
@@ -59,6 +60,6 @@ function Sort() {
       )}
     </div>
   );
-}
+});
 
 export default Sort;
