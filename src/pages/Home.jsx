@@ -87,13 +87,16 @@ function Home() {
   }, [categoryId, sortType, serchValue, currentPage]);
 
   useEffect(() => {
-    const queryString = qs.stringify({
-      sortProperty: sortType,
-      categoryId,
-      currentPage,
-    });
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortProperty: sortType,
+        categoryId,
+        currentPage,
+      });
 
-    navigate(`?${queryString}`);
+      navigate(`?${queryString}`);
+    }
+    isMounted.current = true;
   }, [categoryId, sortType, serchValue, currentPage]);
 
   const burgers = items
