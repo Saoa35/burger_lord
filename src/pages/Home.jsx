@@ -20,6 +20,7 @@ function Home() {
   const dispatch = useDispatch();
 
   const isSearch = useRef(false);
+  const isMounted = useRef(false);
 
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
@@ -71,11 +72,18 @@ function Home() {
           sort,
         })
       );
+      isSearch.current = true;
     }
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    if (!isSearch.current) {
+      fetchBurgers();
+    }
+
+    isSearch.current = false;
   }, [categoryId, sortType, serchValue, currentPage]);
 
   useEffect(() => {
