@@ -49,7 +49,7 @@ function Home() {
         })
       );
     }
-  });
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
