@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchContext } from "../App";
 import Card from "../components/Card";
@@ -19,6 +18,9 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const isSearch = useRef(false);
+
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
   const currentPage = useSelector((state) => state.filter.currentPage);
@@ -55,8 +57,6 @@ function Home() {
       .catch((error) => {
         console.log(error.mesage);
       });
-
-    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -74,7 +74,9 @@ function Home() {
     }
   }, []);
 
-  useEffect(() => {}, [categoryId, sortType, serchValue, currentPage]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categoryId, sortType, serchValue, currentPage]);
 
   useEffect(() => {
     const queryString = qs.stringify({
