@@ -1,4 +1,4 @@
-import { useState, memo, useRef } from "react";
+import { useState, memo, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSortType } from "../redux/slices/filterSlice";
 
@@ -23,8 +23,14 @@ const Sort = memo(({ value }) => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    document.body.addEventListener("click", (event) => {
+      console.log(event);
+    });
+  }, []);
+
   return (
-    <div className="sort">
+    <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
           width="10"
