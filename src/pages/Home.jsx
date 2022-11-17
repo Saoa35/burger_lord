@@ -36,22 +36,7 @@ function Home() {
     dispatch(setCurrentPage(number));
   };
 
-  useEffect(() => {
-    if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
-
-      const sort = list.find((obj) => obj.sortProperty === params.sortProperty);
-
-      dispatch(
-        setFilters({
-          ...params,
-          sort,
-        })
-      );
-    }
-  }, []);
-
-  useEffect(() => {
+  const fetchBurgers = () => {
     setIsLoading(true);
 
     axios
@@ -72,7 +57,24 @@ function Home() {
       });
 
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, serchValue, currentPage]);
+  };
+
+  useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+
+      const sort = list.find((obj) => obj.sortProperty === params.sortProperty);
+
+      dispatch(
+        setFilters({
+          ...params,
+          sort,
+        })
+      );
+    }
+  }, []);
+
+  useEffect(() => {}, [categoryId, sortType, serchValue, currentPage]);
 
   useEffect(() => {
     const queryString = qs.stringify({
