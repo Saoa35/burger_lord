@@ -1,5 +1,4 @@
-import { memo } from "react";
-import { useState } from "react";
+import { useState, memo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSortType } from "../redux/slices/filterSlice";
 
@@ -15,6 +14,7 @@ export const list = [
 const Sort = memo(({ value }) => {
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
+  const sortRef = useRef();
 
   const [open, setOpen] = useState(false);
 

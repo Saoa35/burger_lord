@@ -61,6 +61,19 @@ function Home() {
   };
 
   useEffect(() => {
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortProperty: sortType,
+        categoryId,
+        currentPage,
+      });
+
+      navigate(`?${queryString}`);
+    }
+    isMounted.current = true;
+  }, [categoryId, sortType, serchValue, currentPage]);
+
+  useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
 
@@ -84,19 +97,6 @@ function Home() {
     }
 
     isSearch.current = false;
-  }, [categoryId, sortType, serchValue, currentPage]);
-
-  useEffect(() => {
-    if (isMounted.current) {
-      const queryString = qs.stringify({
-        sortProperty: sortType,
-        categoryId,
-        currentPage,
-      });
-
-      navigate(`?${queryString}`);
-    }
-    isMounted.current = true;
   }, [categoryId, sortType, serchValue, currentPage]);
 
   const burgers = items
