@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logoImg from "../assets/img/burger-logo.jpg";
 import { Search } from "./Search";
 
 function Header() {
+  const {} = useSelector;
+
   return (
     <header className="header">
       <div className="container">
