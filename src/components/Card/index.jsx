@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-function Card({ title, price, imageUrl, additives, types }) {
+function Card({ id, title, price, imageUrl, additives, types }) {
   const [activeAdditives, setActiveAdditives] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
   const typeNames = ["Standart", "Double"];
+
+  const onClickAdd = () => {};
 
   return (
     <div className="card-wrapper">
