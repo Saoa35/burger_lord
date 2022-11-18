@@ -4,7 +4,7 @@ import logoImg from "../assets/img/burger-logo.jpg";
 import { Search } from "./Search";
 
 function Header() {
-  const {} = useSelector;
+  const { items, totalPrice } = useSelector((state) => state.cart);
 
   return (
     <header className="header">
@@ -23,7 +23,7 @@ function Header() {
 
         <div className="header__cart">
           <Link to="cart" className="button button--cart">
-            <span>55 $</span>
+            <span>{totalPrice} $</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
@@ -54,7 +54,7 @@ function Header() {
                 strokeLinejoin="round"
               />
             </svg>
-            <span>3</span>
+            <span>{items.length}</span>
           </Link>
         </div>
       </div>
