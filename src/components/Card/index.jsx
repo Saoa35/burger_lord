@@ -53,7 +53,10 @@ function Card({ id, title, price, imageUrl, additives, types }) {
         </div>
         <div className="card__bottom">
           <div className="card__price">from {price} $</div>
-          <button className="button button--outline button--add">
+          <button
+            onClick={onClickAdd}
+            className="button button--outline button--add"
+          >
             <svg
               width="12"
               height="12"
