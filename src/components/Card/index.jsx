@@ -1,18 +1,26 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import 
 
 function Card({ id, title, price, imageUrl, additives, types }) {
   const [activeAdditives, setActiveAdditives] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
+  const dispatch = useDispatch();
+
   const typeNames = ["Standart", "Double"];
 
-  const onClickAdd = () => {};
-  const item = {
-    id,
-    title,
-    price,
-    imageUrl,
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      price,
+      imageUrl,
+      type: activeType,
+      additives: activeAdditives,
+    };
   };
+
   return (
     <div className="card-wrapper">
       <div className="card">
