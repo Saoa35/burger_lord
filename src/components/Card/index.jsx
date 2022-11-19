@@ -8,10 +8,12 @@ function Card({ id, title, price, imageUrl, additives, types }) {
   const [activeAdditives, setActiveAdditives] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
-  const { count } = useSelector((state) =>
+  const cartItem = useSelector((state) =>
     state.cart.items.find((obj) => obj.id === id)
   );
   const dispatch = useDispatch();
+
+  const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
     const item = {
@@ -73,7 +75,7 @@ function Card({ id, title, price, imageUrl, additives, types }) {
               />
             </svg>
             <span>Add to Cart</span>
-            <i>{count}</i>
+            {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>
