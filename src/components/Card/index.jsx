@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/slices/cartSlice";
+
+const typeNames = ["Standart", "Double"];
 
 function Card({ id, title, price, imageUrl, additives, types }) {
   const [activeAdditives, setActiveAdditives] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
+  const { count } = useSelector((state) =>
+    state.cart.items.find((obj) => obj.id === id)
+  );
   const dispatch = useDispatch();
-
-  const typeNames = ["Standart", "Double"];
 
   const onClickAdd = () => {
     const item = {
@@ -16,7 +19,7 @@ function Card({ id, title, price, imageUrl, additives, types }) {
       title,
       price,
       imageUrl,
-      type: activeType,
+      type: typeNames[activeType],
       additives: activeAdditives,
     };
     dispatch(addItem(item));
@@ -70,7 +73,7 @@ function Card({ id, title, price, imageUrl, additives, types }) {
               />
             </svg>
             <span>Add to Cart</span>
-            <i>0</i>
+            <i>{count}</i>
           </button>
         </div>
       </div>
