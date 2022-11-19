@@ -22,7 +22,7 @@ function Card({ id, title, price, imageUrl, additives, types }) {
       price,
       imageUrl,
       type: typeNames[activeType],
-      additives: activeAdditives,
+      additives: additives[activeAdditives],
     };
     dispatch(addItem(item));
   };
