@@ -7,7 +7,12 @@ function Card({ id, title, price, imageUrl, additives, types }) {
   const typeNames = ["Standart", "Double"];
 
   const onClickAdd = () => {};
-
+  const item = {
+    id,
+    title,
+    price,
+    imageUrl,
+  };
   return (
     <div className="card-wrapper">
       <div className="card">
