@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import 
+import { addItem } from "../../redux/slices/cartSlice";
 
 function Card({ id, title, price, imageUrl, additives, types }) {
   const [activeAdditives, setActiveAdditives] = useState(0);
@@ -19,6 +19,7 @@ function Card({ id, title, price, imageUrl, additives, types }) {
       type: activeType,
       additives: activeAdditives,
     };
+    dispatch(addItem(item));
   };
 
   return (
