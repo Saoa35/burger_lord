@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const fetchBurgers = createAsyncThunk(
+export const fetchBurgers = createAsyncThunk(
   "burger/fetchBurgersStatus",
   async ({ currentPage, categoryId, serchValue, sortType }) => {
     const { data } = await axios.get(
@@ -19,6 +19,7 @@ const fetchBurgers = createAsyncThunk(
 
 const initialState = {
   items: [],
+  status: "loading",
 };
 
 const burgersSlice = createSlice({
@@ -27,6 +28,17 @@ const burgersSlice = createSlice({
   reducers: {
     setItems(state, action) {
       state.items = action.payload;
+    },
+  },
+  extraReducers: {
+    [fetchBurgers.pending]: (state, action) => {
+      console.log("Sending in progress");
+    },
+    [fetchBurgers.fulfilled]: (state, action) => {
+      console.log("Request received");
+    },
+    [fetchBurgers.rejected]: (state, action) => {
+      console.log("Request failed");
     },
   },
 });

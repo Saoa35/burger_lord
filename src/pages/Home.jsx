@@ -27,8 +27,6 @@ function Home() {
   const currentPage = useSelector((state) => state.filter.currentPage);
   const items = useSelector((state) => state.burger.items);
 
-  const [isLoading, setIsLoading] = useState(true);
-
   const { serchValue } = useContext(SearchContext);
 
   const onChangeCategory = (id) => {
