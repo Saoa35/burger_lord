@@ -42,22 +42,23 @@ function Home() {
   const fetchBurgers = async () => {
     setIsLoading(true);
 
-    await axios
-      .get(
+    try {
+      const res = await axios.get(
         `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
           categoryId > 0 ? `category=${categoryId}` : ""
         }${serchValue ? `search=${serchValue}` : ""}&sortBy=${sortType.replace(
           "-",
           ""
         )}&order=${sortType.includes("-") ? "asc" : "desc"} `
-      )
-      .then((res) => {
-        setItems(res.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error.mesage);
-      });
+      );
+
+      setItems(res.data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      console.log("ERROR", error);
+      alert("Sorry, no products found :(");
+    }
   };
 
   useEffect(() => {
