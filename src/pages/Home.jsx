@@ -53,11 +53,11 @@ function Home() {
       );
 
       setItems(res.data);
-      setIsLoading(false);
     } catch (error) {
-      setIsLoading(false);
       console.log("ERROR", error);
       alert("Sorry, no products found :(");
+    } finally {
+      setIsLoading(false);
     }
   };
 
