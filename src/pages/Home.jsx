@@ -1,19 +1,19 @@
-import { useEffect, useState, useContext, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { SearchContext } from "../App";
 import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
 import Sort, { list } from "../components/Sort";
 import {
+  selectFilter,
   setCategoryId,
   setCurrentPage,
   setFilters,
 } from "../redux/slices/filterSlice";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
-import { fetchBurgers } from "../redux/slices/burgersSlice";
+import { fetchBurgers, selectBurgerData } from "../redux/slices/burgersSlice";
 
 function Home() {
   const navigate = useNavigate();
@@ -22,12 +22,10 @@ function Home() {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const categoryId = useSelector((state) => state.filter.categoryId);
-  const sortType = useSelector((state) => state.filter.sort.sortProperty);
-  const currentPage = useSelector((state) => state.filter.currentPage);
-  const { items, status } = useSelector((state) => state.burger);
+  const { categoryId, sort, currentPage, searchValue } =
+    useSelector(selectFilter);
 
-  const { serchValue } = useContext(SearchContext);
+  const { items, status } = useSelector(selectBurgerData);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
@@ -38,7 +36,20 @@ function Home() {
   };
 
   const getBurgers = async () => {
-    dispatch(fetchBurgers({ currentPage, categoryId, serchValue, sortType }));
+    const sortBy = sort.sortProperty.replace("-", "");
+    const order = sort.sortProperty.includes("-") ? "asc" : "desc";
+    const category = categoryId > 0 ? String(categoryId) : "";
+    const search = searchValue;
+
+    dispatch(
+      fetchBurgers({
+        sortBy,
+        order,
+        category,
+        search,
+        currentPage: String(currentPage),
+      })
+    );
 
     window.scrollTo(0, 0);
   };
@@ -46,7 +57,7 @@ function Home() {
   useEffect(() => {
     if (isMounted.current) {
       const queryString = qs.stringify({
-        sortProperty: sortType,
+        sortProperty: sort,
         categoryId,
         currentPage,
       });
@@ -54,7 +65,7 @@ function Home() {
       navigate(`?${queryString}`);
     }
     isMounted.current = true;
-  }, [categoryId, sortType, serchValue, currentPage]);
+  }, [categoryId, sort, searchValue, currentPage]);
 
   useEffect(() => {
     if (window.location.search) {
@@ -78,11 +89,11 @@ function Home() {
     }
 
     isSearch.current = false;
-  }, [categoryId, sortType, serchValue, currentPage]);
+  }, [categoryId, sort, searchValue, currentPage]);
 
   const burgers = items
     // .filter((object) => {
-    //   if (object.title.toLowerCase().includes(serchValue.toLowerCase())) {
+    //   if (object.title.toLowerCase().includes(searchValue.toLowerCase())) {
     //     return true;
     //   }
     //   return false;

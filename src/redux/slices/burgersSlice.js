@@ -3,14 +3,10 @@ import axios from "axios";
 
 export const fetchBurgers = createAsyncThunk(
   "burger/fetchBurgersStatus",
-  async ({ currentPage, categoryId, serchValue, sortType }) => {
+  async ({ sortBy, order, category, search, currentPage }) => {
     const { data } = await axios.get(
       `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
-        categoryId > 0 ? `category=${categoryId}` : ""
-      }${serchValue ? `search=${serchValue}` : ""}&sortBy=${sortType.replace(
-        "-",
-        ""
-      )}&order=${sortType.includes("-") ? "asc" : "desc"} `
+        category}&sortBy=${sortBy}&order=${sortType.includes("-") ? "asc" : "desc"}{serchValue ? `search=${serchValue}` : ""} `
     );
 
     return data;
@@ -44,6 +40,8 @@ const burgersSlice = createSlice({
     },
   },
 });
+
+export const selectBurgerData = (state) => state.burger;
 
 export const { setItems } = burgersSlice.actions;
 

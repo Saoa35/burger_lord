@@ -8,7 +8,7 @@ function Card({ id, title, price, imageUrl, additives, types }) {
   const [activeAdditives, setActiveAdditives] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
-  const cartItem = useSelector(selectCartItemById);
+  const cartItem = useSelector(selectCartItemById(id));
   const dispatch = useDispatch();
 
   const addedCount = cartItem ? cartItem.count : 0;
