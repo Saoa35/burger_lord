@@ -39,10 +39,10 @@ function Home() {
     dispatch(setCurrentPage(number));
   };
 
-  const fetchBurgers = () => {
+  const fetchBurgers = async () => {
     setIsLoading(true);
 
-    axios
+    await axios
       .get(
         `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
           categoryId > 0 ? `category=${categoryId}` : ""
