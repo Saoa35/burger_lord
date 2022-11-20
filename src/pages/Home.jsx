@@ -11,9 +11,9 @@ import {
   setCurrentPage,
   setFilters,
 } from "../redux/slices/filterSlice";
-import axios from "axios";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
+import { fetchBurgers } from "../redux/slices/burgersSlice";
 
 function Home() {
   const navigate = useNavigate();
@@ -25,8 +25,8 @@ function Home() {
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
   const currentPage = useSelector((state) => state.filter.currentPage);
+  const items = useSelector((state) => state.burger.items);
 
-  const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const { serchValue } = useContext(SearchContext);
@@ -39,20 +39,11 @@ function Home() {
     dispatch(setCurrentPage(number));
   };
 
-  const fetchBurgers = async () => {
+  const getBurgers = async () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.get(
-        `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
-          categoryId > 0 ? `category=${categoryId}` : ""
-        }${serchValue ? `search=${serchValue}` : ""}&sortBy=${sortType.replace(
-          "-",
-          ""
-        )}&order=${sortType.includes("-") ? "asc" : "desc"} `
-      );
-
-      setItems(res.data);
+      dispatch(fetchBurgers({ currentPage, categoryId, serchValue, sortType }));
     } catch (error) {
       console.log("ERROR", error);
       alert("Sorry, no products found :(");
@@ -94,7 +85,7 @@ function Home() {
     window.scrollTo(0, 0);
 
     if (!isSearch.current) {
-      fetchBurgers();
+      getBurgers();
     }
 
     isSearch.current = false;
