@@ -31,14 +31,16 @@ const burgersSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchBurgers.pending]: (state, action) => {
-      console.log("Sending in progress");
+    [fetchBurgers.pending]: (state) => {
+      state.status = "loading";
     },
     [fetchBurgers.fulfilled]: (state, action) => {
-      console.log("Request received");
+      state.items = action.payload;
+      state.status = "success";
     },
     [fetchBurgers.rejected]: (state, action) => {
-      console.log("Request failed");
+      state.status = "error";
+      state.items = [];
     },
   },
 });

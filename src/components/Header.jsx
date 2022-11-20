@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logoImg from "../assets/img/burger-logo.jpg";
+import { selectCart } from "../redux/slices/cartSlice";
 import { Search } from "./Search";
 
 function Header() {
-  const { items, totalPrice } = useSelector((state) => state.cart);
+  const { items, totalPrice } = useSelector(selectCart);
 
   return (
     <header className="header">

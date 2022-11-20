@@ -25,7 +25,7 @@ function Home() {
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
   const currentPage = useSelector((state) => state.filter.currentPage);
-  const items = useSelector((state) => state.burger.items);
+  const { items, status } = useSelector((state) => state.burger);
 
   const { serchValue } = useContext(SearchContext);
 
@@ -38,16 +38,9 @@ function Home() {
   };
 
   const getBurgers = async () => {
-    setIsLoading(true);
+    dispatch(fetchBurgers({ currentPage, categoryId, serchValue, sortType }));
 
-    try {
-      dispatch(fetchBurgers({ currentPage, categoryId, serchValue, sortType }));
-    } catch (error) {
-      console.log("ERROR", error);
-      alert("Sorry, no products found :(");
-    } finally {
-      setIsLoading(false);
-    }
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -80,8 +73,6 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     if (!isSearch.current) {
       getBurgers();
     }
@@ -106,7 +97,19 @@ function Home() {
         <Sort />
       </div>
       <h2 className="content__title">All Burgers</h2>
-      <div className="content__items">{isLoading ? skeletons : burgers}</div>
+      {status === "error" ? (
+        <div className="content__error-info">
+          <h2>An error has occurred ☹️</h2>
+          <p>
+            Unfortunately, we could not get a list of burgers. Please try again
+            later. 😼
+          </p>
+        </div>
+      ) : (
+        <div className="content__items">
+          {status === "loading" ? skeletons : burgers}
+        </div>
+      )}
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
