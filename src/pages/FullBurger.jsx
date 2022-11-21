@@ -10,7 +10,7 @@ const FullBurger = () => {
   useEffect(() => {
     async function fetchBurgers() {
       try {
-        const { data } = axios.get(
+        const { data } = await axios.get(
           "https://6367d9abedc85dbc84dd1748.mockapi.io/items/" + id
         );
         setBurger(data);
