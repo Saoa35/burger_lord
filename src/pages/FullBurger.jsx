@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FullBurger = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [burger, setBurger] = useState();
 
@@ -16,6 +17,7 @@ const FullBurger = () => {
         setBurger(data);
       } catch (error) {
         alert("Error request ;(");
+        navigate("/");
       }
     }
     fetchBurgers();
