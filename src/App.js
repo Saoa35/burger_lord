@@ -10,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route path="/" element={<Home />} />
+        <Route path="" element={<Home />} />
         <Route path="cart" element={<Cart />} />
         <Route path="burger/:id" element={<FullBurger />} />
         <Route path="*" element={<NotFound />} />
