@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import "./scss/app.scss";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
@@ -8,18 +7,12 @@ import FullBurger from "./pages/FullBurger";
 
 function App() {
   return (
-    <div className="wrapper">
-      <Header />
-
-      <main className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="burger/:id" element={<FullBurger />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="cart" element={<Cart />} />
+      <Route path="burger/:id" element={<FullBurger />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
