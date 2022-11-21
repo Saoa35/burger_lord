@@ -1,6 +1,6 @@
 [
     {
-      "id": 0,
+      "id": "0",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/kingsitaltiano/kc_italiano.png",
       "title": "King's Italiano",
       "types": [0, 1],
@@ -10,7 +10,7 @@
       "rating": 4
     },
     {
-      "id": 1,
+      "id": "1",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/chicken_lover/chicken_king.png",
       "title": "Chicken King",
       "types": [0, 1],
@@ -20,7 +20,7 @@
       "rating": 6
     },
     {
-      "id": 2,
+      "id": "2",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/chicken_lover/bacon_crispy.png",
       "title": "Bacon Crispy",
       "types": [0, 1],
@@ -30,7 +30,7 @@
       "rating": 4
     },
     {
-      "id": 3,
+      "id": "3",
       "imageUrl": "https://amrestcdn.azureedge.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/lto_wild_tasty/Colorado_King_Chicken.png",
       "title": "Colorado King Chicken",
       "types": [0, 1],
@@ -40,7 +40,7 @@
       "rating": 2
     },
     {
-      "id": 4,
+      "id": "4",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/lto_texas_bbq_chicken/texas_bbq_chicken.png",
       "title": "Texas BBQ Chicken",
       "types": [0, 1],
@@ -50,7 +50,7 @@
       "rating": 8
     },
     {
-      "id": 5,
+      "id": "5",
       "imageUrl": "https://amrestcdn.azureedge.net/bk-web-ordering/BK%20PL/bk_images/burgery/bacon_king_jr.png",
       "title": "Bacon King Junior",
       "types": [0, 1],
@@ -60,7 +60,7 @@
       "rating": 2
     },
     {
-      "id": 6,
+      "id": "6",
       "imageUrl": "https://amrestcdn.azureedge.net/bk-web-ordering/BK%20PL/bk_images/burgery/whopper.png",
       "title": "Whopper",
       "types": [0, 1],
@@ -70,7 +70,7 @@
       "rating": 9
     },
     {
-      "id": 7,
+      "id": "7",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/plantbased_new/PBcheeseburger.png",
       "title": "Cheeseburger",
       "types": [0, 1],
@@ -80,7 +80,7 @@
       "rating": 10
     },
     {
-      "id": 8,
+      "id": "8",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/plantbased_new/PBchilicheeseburger.png",
       "title": "Plant-Based Chili Cheese Burger",
       "types": [0],
@@ -90,7 +90,7 @@
       "rating": 9
     },
     {
-      "id": 9,
+      "id": "9",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/plantbased_new/plantbased_royal_solo.png",
       "title": "Plant-Based Royale",
       "types": [0],
@@ -100,7 +100,7 @@
       "rating": 7
     },
     {
-      "id": 10,
+      "id": "10",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/plantbased_new/PBhamburger.png",
       "title": "Plant-Based Hamburger",
       "types": [0],
@@ -110,7 +110,7 @@
       "rating": 3
     },
     {
-      "id": 11,
+      "id": "11",
       "imageUrl": "https://amrestcdn.azureedge.net/bk-web-ordering/BK%20PL/bk_images/burgery/bigking.png",
       "title": "Big King",
       "types": [0],
@@ -120,7 +120,7 @@
       "rating": 10
     },
     {
-      "id": 12,
+      "id": "12",
       "imageUrl": "https://amrestcdn.azureedge.net/bk-web-ordering/BK%20PL/bk_images/burgery/crispy_chicken_cheese.png",
       "title": "Cheese Crispy Chicken",
       "types": [0],
@@ -130,7 +130,7 @@
       "rating": 8
     },
     {
-      "id": 13,
+      "id": "13",
       "imageUrl": "https://amrestcdn.azureedge.net/bk-web-ordering/BK%20PL/bk_images/burgery/steakhouse.png",
       "title": "Steakhouse",
       "types": [0],
@@ -140,7 +140,7 @@
       "rating": 6
     },
     {
-      "id": 14,
+      "id": "14",
       "imageUrl": "https://amrestcdn.azureedge.net/bk-web-ordering/BK%20PL/bk_images/burgery/crispy_chicken.png",
       "title": "Crispy Chicken",
       "types": [0],
@@ -150,7 +150,7 @@
       "rating": 7
     },
     {
-      "id": 15,
+      "id": "15",
       "imageUrl": "https://amrestcdn.azureedge.net/bk-web-ordering/BK%20PL/bk_images/burgery/plant_based_whopper.png",
       "title": "Plant-Based Whopper",
       "types": [0],
@@ -160,7 +160,7 @@
       "rating": 4
     },
     {
-      "id": 16,
+      "id": "16",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/oferty_specjalne/Chicken%20Royale%20Bacon%26Cheese/Bacon_Cheese_Royale.png",
       "title": "Bacon&Cheese Chicken Royale",
       "types": [0],
@@ -170,7 +170,7 @@
       "rating": 5
     },
     {
-      "id": 17,
+      "id": "17",
       "imageUrl": "https://sawepecomcdn.blob.core.windows.net/bk-web-ordering/BK%20PL/bk_images/royale_new_packshot/BK_solo_long.png",
       "title": "Chicken Royale",
       "types": [0],

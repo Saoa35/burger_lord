@@ -5,8 +5,7 @@ export const fetchBurgers = createAsyncThunk(
   "burger/fetchBurgersStatus",
   async ({ sortBy, order, category, search, currentPage }) => {
     const { data } = await axios.get(
-      `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${
-        category}&sortBy=${sortBy}&order=${sortType.includes("-") ? "asc" : "desc"}{serchValue ? `search=${serchValue}` : ""} `
+      `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${category}&sortBy=${sortBy}&order=${order}&search=${search}`
     );
 
     return data;

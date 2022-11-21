@@ -53,7 +53,7 @@ const Sort = memo(({ value }) => {
           />
         </svg>
         <b>Sorting by:</b>
-        {/* <span onClick={() => setOpen(!open)}>{sort.name}</span> */}
+        <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
         <div className="sort__popup">

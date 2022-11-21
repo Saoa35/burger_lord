@@ -1,5 +1,37 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 const FullBurger = () => {
-  return <div>Full Burger</div>;
+  const { id } = useParams();
+
+  const [burger, setBurger] = useState();
+
+  useEffect(() => {
+    async function fetchBurgers() {
+      try {
+        const { data } = axios.get(
+          "https://6367d9abedc85dbc84dd1748.mockapi.io/items/" + id
+        );
+        setBurger(data);
+      } catch (error) {
+        alert("Error request ;(");
+      }
+    }
+    fetchBurgers();
+  }, []);
+
+  if (!burger) {
+    return "Loading...";
+  }
+
+  return (
+    <div className="container">
+      <img src={burger.imageUrl} alt="Burger" />
+      <h2>{burger.title}</h2>
+      <h4>{burger.price} $</h4>
+    </div>
+  );
 };
 
 export default FullBurger;

@@ -12,14 +12,13 @@ import {
   setFilters,
 } from "../redux/slices/filterSlice";
 import qs from "qs";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchBurgers, selectBurgerData } from "../redux/slices/burgersSlice";
 
 function Home() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const isSearch = useRef(false);
   const isMounted = useRef(false);
 
   const { categoryId, sort, currentPage, searchValue } =
@@ -38,8 +37,10 @@ function Home() {
   const getBurgers = async () => {
     const sortBy = sort.sortProperty.replace("-", "");
     const order = sort.sortProperty.includes("-") ? "asc" : "desc";
-    const category = categoryId > 0 ? String(categoryId) : "";
-    const search = searchValue;
+    const category = categoryId > 0 ? `category=${categoryId}` : "";
+    const search = searchValue ? `&search=${searchValue}` : "";
+    // const category = categoryId > 0 ? String(categoryId) : "";
+    // const search = searchValue;
 
     dispatch(
       fetchBurgers({
@@ -47,7 +48,8 @@ function Home() {
         order,
         category,
         search,
-        currentPage: String(currentPage),
+        currentPage,
+        // currentPage: String(currentPage),
       })
     );
 
@@ -56,40 +58,30 @@ function Home() {
 
   useEffect(() => {
     if (isMounted.current) {
-      const queryString = qs.stringify({
-        sortProperty: sort,
-        categoryId,
+      const params = {
+        sortProperty: sort.sortProperty,
+        categoryId: categoryId > 0 ? categoryId : null,
         currentPage,
-      });
+      };
+
+      const queryString = qs.stringify(params, { skipNulls: true });
 
       navigate(`?${queryString}`);
     }
-    isMounted.current = true;
-  }, [categoryId, sort, searchValue, currentPage]);
+    // isMounted.current = true;
+
+    if (!window.location.search) {
+      fetchBurgers();
+    }
+  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   useEffect(() => {
-    if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
+    // if (!isSearch.current) {
+    getBurgers();
+    // }
 
-      const sort = list.find((obj) => obj.sortProperty === params.sortProperty);
-
-      dispatch(
-        setFilters({
-          ...params,
-          sort,
-        })
-      );
-      isSearch.current = true;
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!isSearch.current) {
-      getBurgers();
-    }
-
-    isSearch.current = false;
-  }, [categoryId, sort, searchValue, currentPage]);
+    // isSearch.current = false;
+  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   const burgers = items
     // .filter((object) => {
@@ -98,7 +90,12 @@ function Home() {
     //   }
     //   return false;
     // })
-    .map((obj) => <Card key={obj.id} {...obj} />);
+    .map((obj) => (
+      <Link to={`/burger/${obj.id}`} key={obj.id}>
+        <Card {...obj} />
+      </Link>
+    ));
+
   const skeletons = [...Array(6)].map((_, i) => <Skeleton key={i} />);
 
   return (
