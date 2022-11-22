@@ -4,12 +4,11 @@ import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
-import Sort, { list } from "../components/Sort";
+import Sort from "../components/Sort";
 import {
   selectFilter,
   setCategoryId,
   setCurrentPage,
-  setFilters,
 } from "../redux/slices/filterSlice";
 import qs from "qs";
 import { Link, useNavigate } from "react-router-dom";
