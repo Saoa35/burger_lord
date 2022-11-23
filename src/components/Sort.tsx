@@ -2,6 +2,11 @@ import { useState, memo, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSort, setSortType } from "../redux/slices/filterSlice";
 
+type ListItem = {
+  name: string;
+  sortProperty: string;
+};
+
 export const list = [
   { name: "popularity (DESC)", sortProperty: "rating" },
   { name: "popularity (ASC)", sortProperty: "-rating" },
@@ -11,7 +16,7 @@ export const list = [
   { name: "alphabetically (ASC)", sortProperty: "-title" },
 ];
 
-const Sort = memo(({ value }) => {
+const Sort = memo(({ value: any }) => {
   const dispatch = useDispatch();
   const sort = useSelector(selectSort);
   const sortRef = useRef();
