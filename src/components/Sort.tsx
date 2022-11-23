@@ -7,7 +7,7 @@ type ListItem = {
   sortProperty: string;
 };
 
-export const list = [
+export const list: ListItem[] = [
   { name: "popularity (DESC)", sortProperty: "rating" },
   { name: "popularity (ASC)", sortProperty: "-rating" },
   { name: "price (DESC)", sortProperty: "price" },
@@ -16,20 +16,20 @@ export const list = [
   { name: "alphabetically (ASC)", sortProperty: "-title" },
 ];
 
-const Sort = memo(({ value: any }) => {
+const Sort = memo(({ value }: any) => {
   const dispatch = useDispatch();
   const sort = useSelector(selectSort);
-  const sortRef = useRef();
+  const sortRef = useRef<HTMLDivElement>(null);
 
   const [open, setOpen] = useState(false);
 
-  const onClickSortItems = (obj) => {
+  const onClickSortItems = (obj: ListItem) => {
     dispatch(setSortType(obj));
     setOpen(false);
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (!event.path.includes(sortRef.current)) {
         setOpen(false);
       }

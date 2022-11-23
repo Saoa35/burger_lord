@@ -1,4 +1,6 @@
-function Categories({ value, onClickCategory }) {
+import React from "react";
+
+const Categories: React.FC = ({ value, onClickCategory }) => {
   const categories = [
     "All",
     "Chicken",
@@ -23,6 +25,6 @@ function Categories({ value, onClickCategory }) {
       </ul>
     </div>
   );
-}
+};
 
 export default Categories;
