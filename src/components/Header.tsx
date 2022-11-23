@@ -1,16 +1,18 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import logoImg from "../assets/img/burger-logo.jpg";
 import { selectCart } from "../redux/slices/cartSlice";
 import { Search } from "./Search";
 
-function Header: React.FC () {
+function Header() {
   const { items, totalPrice } = useSelector(selectCart);
 
-  const location = useLocation();
+  // const location = useLocation();
 
-  const totalCount = items.reduce((prev, obj) => obj.count + prev, 0);
+  const totalCount = items.reduce(
+    (prev: number, obj: { count: number }) => obj.count + prev,
+    0
+  );
 
   return (
     <header className="header">

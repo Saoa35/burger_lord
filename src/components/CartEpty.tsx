@@ -17,7 +17,7 @@ const CartEmpty: React.FC = () => {
         alt="Empty cart"
       />
       <Link to="/" className="button button--black">
-        <span>to Main page</span>
+        <span>Go to Main page</span>
       </Link>
     </div>
   );
