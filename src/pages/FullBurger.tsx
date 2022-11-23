@@ -1,12 +1,17 @@
+import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const FullBurger = () => {
+const FullBurger: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [burger, setBurger] = useState();
+  const [burger, setBurger] = useState<{
+    imageUrl: string;
+    title: string;
+    price: number;
+  }>();
 
   useEffect(() => {
     async function fetchBurgers() {
@@ -24,7 +29,7 @@ const FullBurger = () => {
   }, []);
 
   if (!burger) {
-    return "Loading...";
+    return <>Loading...</>;
   }
 
   return (
