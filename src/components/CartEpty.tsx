@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import React from "react";
 
-const CartEmpty = () => {
+const CartEmpty: React.FC = () => {
   return (
     <div className="cart cart--empty">
       <h2>
@@ -16,7 +17,7 @@ const CartEmpty = () => {
         alt="Empty cart"
       />
       <Link to="/" className="button button--black">
-        <span>Go Back</span>
+        <span>to Main page</span>
       </Link>
     </div>
   );
