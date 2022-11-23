@@ -10,7 +10,7 @@ type CardProps = {
   price: number;
   imageUrl: string;
   additives: string;
-  types: string;
+  types: number;
 };
 
 const Card: React.FC<CardProps> = ({
