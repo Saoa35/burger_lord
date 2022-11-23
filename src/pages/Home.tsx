@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../components/Card";
@@ -9,15 +10,15 @@ import {
   selectFilter,
   setCategoryId,
   setCurrentPage,
+  setFilters,
 } from "../redux/slices/filterSlice";
 import qs from "qs";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchBurgers, selectBurgerData } from "../redux/slices/burgersSlice";
 
-function Home() {
+const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const isMounted = useRef(false);
 
   const { categoryId, sort, currentPage, searchValue } =
@@ -25,11 +26,11 @@ function Home() {
 
   const { items, status } = useSelector(selectBurgerData);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = (number) => {
+  const onChangePage = (number: number) => {
     dispatch(setCurrentPage(number));
   };
 
@@ -42,6 +43,7 @@ function Home() {
     // const search = searchValue;
 
     dispatch(
+      // @ts-ignore
       fetchBurgers({
         sortBy,
         order,
@@ -65,9 +67,8 @@ function Home() {
 
       const queryString = qs.stringify(params, { skipNulls: true });
 
-      navigate(`?${queryString}`);
+      navigate(`/?${queryString}`);
     }
-    // isMounted.current = true;
 
     if (!window.location.search) {
       fetchBurgers();
@@ -75,11 +76,7 @@ function Home() {
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   useEffect(() => {
-    // if (!isSearch.current) {
     getBurgers();
-    // }
-
-    // isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   const burgers = items
@@ -89,7 +86,7 @@ function Home() {
     //   }
     //   return false;
     // })
-    .map((obj) => (
+    .map((obj: any) => (
       <Link to={`/burger/${obj.id}`} key={obj.id}>
         <Card {...obj} />
       </Link>
@@ -120,6 +117,6 @@ function Home() {
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
-}
+};
 
 export default Home;
