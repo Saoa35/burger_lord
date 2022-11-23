@@ -4,7 +4,23 @@ import { addItem, selectCartItemById } from "../../redux/slices/cartSlice";
 
 const typeNames = ["Standart", "Double"];
 
-function Card({ id, title, price, imageUrl, additives, types }) {
+type CardProps = {
+  id: string;
+  title: string;
+  price: number;
+  imageUrl: string;
+  additives: string;
+  types: string;
+};
+
+const Card: React.FC<CardProps> = ({
+  id,
+  title,
+  price,
+  imageUrl,
+  additives,
+  types,
+}) => {
   const [activeAdditives, setActiveAdditives] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
@@ -79,6 +95,6 @@ function Card({ id, title, price, imageUrl, additives, types }) {
       </div>
     </div>
   );
-}
+};
 
 export default Card;
