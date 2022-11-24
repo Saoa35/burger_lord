@@ -7,8 +7,6 @@ type ListItem = {
   sortProperty: string;
 };
 
-type PopupClick = React.MouseEvent<HTMLBodyElement>;
-
 export const list: ListItem[] = [
   { name: "popularity (DESC)", sortProperty: "rating" },
   { name: "popularity (ASC)", sortProperty: "-rating" },
@@ -31,8 +29,9 @@ const Sort = memo(({ value }: any) => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: React.MouseEvent<HTMLBodyElement>) => {
-      if (!event.path.includes(sortRef.current)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      const _event = event as MouseEvent & { path: Node[] };
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {
         setOpen(false);
       }
     };
