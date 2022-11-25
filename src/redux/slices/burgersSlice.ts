@@ -2,9 +2,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
 
+type FetchBurgersArgs = Record<string, string>;
+
 export const fetchBurgers = createAsyncThunk(
   "burger/fetchBurgersStatus",
-  async ({ sortBy, order, category, search, currentPage }) => {
+  async (params: FetchBurgersArgs) => {
+    const { sortBy, order, category, search, currentPage } = params;
     const { data } = await axios.get(
       `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${category}&sortBy=${sortBy}&order=${order}&search=${search}`
     );
