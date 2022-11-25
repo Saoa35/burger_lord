@@ -10,3 +10,5 @@ export const store = configureStore({
     burger,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
