@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
 
-export const fetchBurgers = createAsyncThunk<Burger[], Record<string, string>>(
+export const fetchBurgers = createAsyncThunk<Burger[], SearchBurgerParams>(
   "burger/fetchBurgersStatus",
   async (params) => {
     const { sortBy, order, category, search, currentPage } = params;
@@ -13,6 +13,14 @@ export const fetchBurgers = createAsyncThunk<Burger[], Record<string, string>>(
     return data;
   }
 );
+
+export type SearchBurgerParams = {
+  sortBy: string;
+  order: string;
+  category: string;
+  search: string;
+  currentPage: string;
+};
 
 type Burger = {
   id: string;

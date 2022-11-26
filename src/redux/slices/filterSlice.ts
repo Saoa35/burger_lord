@@ -7,7 +7,7 @@ type Sort = {
   sortProperty: "rating" | "title" | "price" | "-rating" | "-title" | "-price";
 };
 
-interface FilterSliceState {
+export interface FilterSliceState {
   searchValue: string;
   categoryId: number;
   sort: Sort;

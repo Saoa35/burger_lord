@@ -4,8 +4,9 @@ import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
-import Sort from "../components/Sort";
+import Sort, { list } from "../components/Sort";
 import {
+  FilterSliceState,
   selectFilter,
   setCategoryId,
   setCurrentPage,
@@ -49,7 +50,6 @@ const Home: React.FC = () => {
         category,
         search,
         currentPage: String(currentPage),
-        // currentPage: String(currentPage),
       })
     );
 
@@ -70,12 +70,27 @@ const Home: React.FC = () => {
     }
 
     if (!window.location.search) {
-      fetchBurgers();
+      dispatch(fetchBurgers({}));
     }
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   useEffect(() => {
     getBurgers();
+  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+
+  useEffect(() => {
+    if (!window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+      const sort = list.find((obj) => obj.sortProperty === params.sortProperty);
+      if (sort) {
+        params.sort = sort;
+      }
+      dispatch(setFilters(params));
+    }
+
+    if (!window.location.search) {
+      dispatch(fetchBurgers({}));
+    }
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   const burgers = items
