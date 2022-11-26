@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
@@ -14,10 +14,11 @@ import {
 import qs from "qs";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchBurgers, selectBurgerData } from "../redux/slices/burgersSlice";
+import { useAppDispatch } from "../redux/store";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const isMounted = useRef(false);
 
   const { categoryId, sort, currentPage, searchValue } =
@@ -42,7 +43,6 @@ const Home: React.FC = () => {
     // const search = searchValue;
 
     dispatch(
-      // @ts-ignore
       fetchBurgers({
         sortBy,
         order,
