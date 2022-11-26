@@ -1,17 +1,16 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
-import { CartItem } from "./cartSlice";
 
-export const fetchBurgers = createAsyncThunk(
+export const fetchBurgers = createAsyncThunk<Burger[], Record<string, string>>(
   "burger/fetchBurgersStatus",
-  async (params: Record<string, string>) => {
+  async (params) => {
     const { sortBy, order, category, search, currentPage } = params;
     const { data } = await axios.get(
       `https://6367d9abedc85dbc84dd1748.mockapi.io/items?page=${currentPage}&limit=6&${category}&sortBy=${sortBy}&order=${order}&search=${search}`
     );
 
-    return data as CartItem;
+    return data;
   }
 );
 
@@ -38,22 +37,37 @@ const burgersSlice = createSlice({
   name: "burger",
   initialState,
   reducers: {
-    setItems(state, action) {
+    setItems(state, action: PayloadAction<Burger[]>) {
       state.items = action.payload;
     },
   },
-  extraReducers: {
-    [fetchBurgers.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchBurgers.pending, (state, action) => {
       state.status = "loading";
-    },
-    [fetchBurgers.fulfilled]: (state, action) => {
+      state.items = [];
+    });
+
+    builder.addCase(fetchBurgers.fulfilled, (state, action) => {
       state.items = action.payload;
       state.status = "success";
-    },
-    [fetchBurgers.rejected]: (state, action) => {
+    });
+
+    builder.addCase(fetchBurgers.rejected, (state, action) => {
       state.status = "error";
       state.items = [];
-    },
+    });
+
+    // [fetchBurgers.pending]: (state) => {
+    //   state.status = "loading";
+    // },
+    // [fetchBurgers.fulfilled]: (state, action) => {
+    //   state.items = action.payload;
+    //   state.status = "success";
+    // },
+    // [fetchBurgers.rejected]: (state, action) => {
+    //   state.status = "error";
+    //   state.items = [];
+    // },
   },
 });
 
