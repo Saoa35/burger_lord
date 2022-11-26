@@ -13,8 +13,12 @@ import {
   setFilters,
 } from "../redux/slices/filterSlice";
 import qs from "qs";
-import { Link, useNavigate } from "react-router-dom";
-import { fetchBurgers, selectBurgerData } from "../redux/slices/burgersSlice";
+import { useNavigate } from "react-router-dom";
+import {
+  fetchBurgers,
+  SearchBurgerParams,
+  selectBurgerData,
+} from "../redux/slices/burgersSlice";
 import { useAppDispatch } from "../redux/store";
 
 const Home: React.FC = () => {
@@ -70,7 +74,7 @@ const Home: React.FC = () => {
     }
 
     if (!window.location.search) {
-      dispatch(fetchBurgers({}));
+      dispatch(fetchBurgers({} as SearchBurgerParams));
     }
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
@@ -78,20 +82,25 @@ const Home: React.FC = () => {
     getBurgers();
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  useEffect(() => {
-    if (!window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
-      const sort = list.find((obj) => obj.sortProperty === params.sortProperty);
-      if (sort) {
-        params.sort = sort;
-      }
-      dispatch(setFilters(params));
-    }
+  // useEffect(() => {
+  //   if (!window.location.search) {
+  //     const params = qs.parse(
+  //       window.location.search.substring(1)
+  //     ) as unknown as SearchBurgerParams;
+  //     const sort = list.find((obj) => obj.sortProperty === params.sortBy);
 
-    if (!window.location.search) {
-      dispatch(fetchBurgers({}));
-    }
-  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+  //     dispatch(
+  //       setFilters({
+  //         searchValue: params.search,
+  //         categoryId: Number(params.category),
+  //         currentPage: Number(params.currentPage),
+  //         sort: sort || list[0],
+  //       })
+  //     );
+  //   }
+
+  //   isMounted.current = true;
+  // }, []);
 
   const burgers = items
     // .filter((object) => {
@@ -100,11 +109,7 @@ const Home: React.FC = () => {
     //   }
     //   return false;
     // })
-    .map((obj: any) => (
-      <Link to={`/burger/${obj.id}`} key={obj.id}>
-        <Card {...obj} />
-      </Link>
-    ));
+    .map((obj: any) => <Card {...obj} />);
 
   const skeletons = [...Array(6)].map((_, i) => <Skeleton key={i} />);
 

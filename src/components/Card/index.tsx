@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   addItem,
   CartItem,
@@ -50,8 +51,10 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className="card-wrapper">
       <div className="card">
-        <img className="card__image" src={imageUrl} alt="Burger" />
-        <h4 className="card__title">{title}</h4>
+        <Link to={`/burger/${id}`} key={id}>
+          <img className="card__image" src={imageUrl} alt="Burger" />
+          <h4 className="card__title">{title}</h4>
+        </Link>
         <div className="card__selector">
           <ul>
             {types.map((el) => (

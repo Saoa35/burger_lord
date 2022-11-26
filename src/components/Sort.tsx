@@ -1,19 +1,27 @@
 import { useState, memo, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectSort, setSortType } from "../redux/slices/filterSlice";
+import {
+  selectSort,
+  setSortType,
+  SortPopupEnum,
+} from "../redux/slices/filterSlice";
 
 type ListItem = {
   name: string;
-  sortProperty: string;
+  sortProperty: SortPopupEnum;
+};
+
+type PopupClick = MouseEvent & {
+  path: Node[];
 };
 
 export const list: ListItem[] = [
-  { name: "popularity (DESC)", sortProperty: "rating" },
-  { name: "popularity (ASC)", sortProperty: "-rating" },
-  { name: "price (DESC)", sortProperty: "price" },
-  { name: "price (ASC)", sortProperty: "-price" },
-  { name: "alphabetically (DESC)", sortProperty: "title" },
-  { name: "alphabetically (ASC)", sortProperty: "-title" },
+  { name: "popularity (DESC)", sortProperty: SortPopupEnum.RATING_DESC },
+  { name: "popularity (ASC)", sortProperty: SortPopupEnum.RATING_ASC },
+  { name: "price (DESC)", sortProperty: SortPopupEnum.PRICE_DESC },
+  { name: "price (ASC)", sortProperty: SortPopupEnum.PRICE_ASC },
+  { name: "alphabetically (DESC)", sortProperty: SortPopupEnum.TITLE_DESC },
+  { name: "alphabetically (ASC)", sortProperty: SortPopupEnum.TITLE_ASC },
 ];
 
 const Sort = memo(({ value }: any) => {
