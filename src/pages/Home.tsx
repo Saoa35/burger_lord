@@ -48,7 +48,7 @@ const Home: React.FC = () => {
         order,
         category,
         search,
-        currentPage,
+        currentPage: String(currentPage),
         // currentPage: String(currentPage),
       })
     );
