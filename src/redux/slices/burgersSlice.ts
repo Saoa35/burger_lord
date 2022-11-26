@@ -23,7 +23,7 @@ type Burger = {
   types: number;
 };
 
-enum Status {
+export enum Status {
   LOADING = "loading",
   SUCCESS = "success",
   ERROR = "error",
@@ -31,12 +31,12 @@ enum Status {
 
 interface BurgerSliceState {
   items: Burger[];
-  status: "loading" | "success" | "error";
+  status: Status;
 }
 
 const initialState: BurgerSliceState = {
   items: [],
-  status: "loading",
+  status: Status.LOADING,
 };
 
 const burgersSlice = createSlice({
@@ -49,17 +49,17 @@ const burgersSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBurgers.pending, (state, action) => {
-      state.status = "loading";
+      state.status = Status.LOADING;
       state.items = [];
     });
 
     builder.addCase(fetchBurgers.fulfilled, (state, action) => {
       state.items = action.payload;
-      state.status = "success";
+      state.status = Status.SUCCESS;
     });
 
     builder.addCase(fetchBurgers.rejected, (state, action) => {
-      state.status = "error";
+      state.status = Status.ERROR;
       state.items = [];
     });
   },
