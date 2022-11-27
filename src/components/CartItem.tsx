@@ -6,6 +6,7 @@ import {
   minusItem,
   removeItem,
 } from "../redux/slices/cartSlice";
+import clsx from "clsx";
 
 type CartItemProps = {
   id: string;
