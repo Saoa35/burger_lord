@@ -5,21 +5,14 @@ import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
 import Sort, { list } from "../components/Sort";
-import {
-  FilterSliceState,
-  selectFilter,
-  setCategoryId,
-  setCurrentPage,
-  setFilters,
-} from "../redux/slices/filterSlice";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
-import {
-  fetchBurgers,
-  SearchBurgerParams,
-  selectBurgerData,
-} from "../redux/slices/burgersSlice";
 import { useAppDispatch } from "../redux/store";
+import { selectFilter } from "../redux/filter/selectors";
+import { selectBurgerData } from "../redux/burger/selectors";
+import { setCategoryId, setCurrentPage } from "../redux/filter/slice";
+import { fetchBurgers } from "../redux/burger/asyncActions";
+import { SearchBurgerParams } from "../redux/burger/types";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
