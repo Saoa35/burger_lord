@@ -17,9 +17,11 @@ interface CartSliceState {
   items: CartItem[];
 }
 
+const cartData = GetCartFromLocalStorage();
+
 const initialState: CartSliceState = {
-  totalPrice: 0,
-  items: GetCartFromLocalStorage,
+  totalPrice: cartData.totalPrice,
+  items: cartData.items,
 };
 
 const cartSlice = createSlice({
@@ -34,10 +36,6 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, count: 1 });
       }
-
-      state.totalPrice = state.items.reduce((prev, obj) => {
-        return obj.price * obj.count + prev;
-      }, 0);
     },
 
     minusItem(state, action: PayloadAction<string>) {
