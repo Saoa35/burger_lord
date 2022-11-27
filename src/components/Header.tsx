@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import logoImg from "../assets/img/burger-logo.jpg";
@@ -6,13 +7,21 @@ import { Search } from "./Search";
 
 function Header() {
   const { items, totalPrice } = useSelector(selectCart);
-
   const location = useLocation();
+  const isMounted = useRef(false);
 
   const totalCount = items.reduce(
     (prev: number, obj: { count: number }) => obj.count + prev,
     0
   );
+
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem("cart", json);
+    }
+    isMounted.current = true;
+  }, [items]);
 
   return (
     <header className="header">
