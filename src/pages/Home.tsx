@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
@@ -31,9 +31,9 @@ const Home: React.FC = () => {
 
   const { items, status } = useSelector(selectBurgerData);
 
-  const onChangeCategory = (id: number) => {
+  const onChangeCategory = useCallback((id: number) => {
     dispatch(setCategoryId(id));
-  };
+  }, []);
 
   const onChangePage = (number: number) => {
     dispatch(setCurrentPage(number));
