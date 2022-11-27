@@ -109,7 +109,7 @@ const Home: React.FC = () => {
     //   }
     //   return false;
     // })
-    .map((obj: any, i) => <Card {...obj} key={i} />);
+    .map((obj: any) => <Card {...obj} key={obj.id} />);
 
   const skeletons = [...Array(6)].map((_, i) => <Skeleton key={i} />);
 
