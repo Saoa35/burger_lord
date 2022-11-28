@@ -33,7 +33,7 @@ const FullBurger: React.FC = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{ textAlign: "center" }}>
       <img src={burger.imageUrl} alt="Burger" />
       <h2>{burger.title}</h2>
       <h4>{burger.price} $</h4>
