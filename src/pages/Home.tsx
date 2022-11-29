@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
-import Sort, { list } from "../components/Sort";
+import Sort from "../components/Sort";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../redux/store";
