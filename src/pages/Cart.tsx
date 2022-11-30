@@ -6,7 +6,7 @@ import CartItem from "../components/CartItem";
 import { selectCart } from "../redux/cart/selectors";
 import { clearItems } from "../redux/cart/slice";
 
-export const Cart: React.FC = () => {
+const Cart: React.FC = () => {
   const dispatch = useDispatch();
   const { totalPrice, items } = useSelector(selectCart);
 
@@ -148,3 +148,5 @@ export const Cart: React.FC = () => {
     </div>
   );
 };
+
+export default Cart;
