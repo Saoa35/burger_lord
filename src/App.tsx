@@ -4,9 +4,13 @@ import { Route, Routes } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import "./scss/app.scss";
 
-const Cart = lazy(() => import("./pages/Cart"));
-const FullBurger = lazy(() => import("./pages/FullBurger"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Cart = lazy(() => import(/* webpackChunkName: 'Cart' */ "./pages/Cart"));
+const FullBurger = lazy(
+  () => import(/* webpackChunkName: 'FullBurger' */ "./pages/FullBurger")
+);
+const NotFound = lazy(
+  () => import(/* webpackChunkName: 'NotFound' */ "./pages/NotFound")
+);
 
 function App() {
   return (
