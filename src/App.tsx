@@ -1,13 +1,12 @@
 import { lazy, Suspense } from "react";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-import NotFound from "./pages/NotFound";
-// import { Cart } from "./pages/Cart";
-import FullBurger from "./pages/FullBurger";
 import MainLayout from "./layouts/MainLayout";
 import "./scss/app.scss";
 
 const Cart = lazy(() => import("./pages/Cart"));
+const FullBurger = lazy(() => import("./pages/FullBurger"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   return (
@@ -22,8 +21,22 @@ function App() {
             </Suspense>
           }
         />
-        <Route path="burger/:id" element={<FullBurger />} />
-        <Route path="*" element={<NotFound />} />
+        <Route
+          path="burger/:id"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <FullBurger />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <NotFound />
+            </Suspense>
+          }
+        />
       </Route>
     </Routes>
   );
