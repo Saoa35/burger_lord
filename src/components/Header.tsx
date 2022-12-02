@@ -11,7 +11,7 @@ function Header() {
   const isMounted = useRef(false);
 
   const totalCount = items.reduce(
-    (prev: number, obj: { count: number }) => obj.count + prev,
+    (prev: number, item: any) => prev + item.count,
     0
   );
 
