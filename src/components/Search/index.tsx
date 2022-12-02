@@ -7,7 +7,7 @@ import { setSearchValue } from "../../redux/filter/slice";
 
 const Search: React.FC = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const onClickClear = () => {
