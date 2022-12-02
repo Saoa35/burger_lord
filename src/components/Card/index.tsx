@@ -15,6 +15,7 @@ type CardProps = {
   imageUrl: string;
   additives: string[];
   types: number[];
+  rating: number;
 };
 
 const Card: React.FC<CardProps> = ({
