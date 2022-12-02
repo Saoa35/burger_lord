@@ -1,10 +1,6 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import Card from "../components/Card";
-import Skeleton from "../components/Card/Skeleton";
-import Categories from "../components/Categories";
-import { Pagination } from "../components/Pagination";
-import Sort from "../components/Sort";
+import { Card, Skeleton, Categories, Pagination, Sort } from "../components";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../redux/store";

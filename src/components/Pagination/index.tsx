@@ -6,7 +6,7 @@ type PaginationProps = {
   currentPage: number;
 };
 
-export const Pagination: React.FC<PaginationProps> = ({
+const Pagination: React.FC<PaginationProps> = ({
   onChangePage,
   currentPage,
 }) => {
@@ -23,3 +23,5 @@ export const Pagination: React.FC<PaginationProps> = ({
     />
   );
 };
+
+export default Pagination;

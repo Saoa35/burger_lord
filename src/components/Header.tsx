@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import logoImg from "../assets/img/burger-logo.jpg";
 import { selectCart } from "../redux/cart/selectors";
-import { Search } from "./Search";
+import Search from "./Search";
 
 function Header() {
   const { items, totalPrice } = useSelector(selectCart);

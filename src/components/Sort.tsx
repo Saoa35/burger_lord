@@ -1,7 +1,7 @@
 import { useState, memo, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setSortType } from "../redux/filter/slice";
-import { Sort, SortPopupEnum } from "../redux/filter/types";
+import { Sort as SortType, SortPopupEnum } from "../redux/filter/types";
 
 type ListItem = {
   name: string;
@@ -13,7 +13,7 @@ type PopupClick = MouseEvent & {
 };
 
 type SortPopupProps = {
-  value: Sort;
+  value: SortType;
 };
 
 export const list: ListItem[] = [
@@ -25,7 +25,7 @@ export const list: ListItem[] = [
   { name: "alphabetically (ASC)", sortProperty: SortPopupEnum.TITLE_ASC },
 ];
 
-const SortPopup: React.FC<SortPopupProps> = memo(({ value }) => {
+const Sort: React.FC<SortPopupProps> = memo(({ value }) => {
   const dispatch = useDispatch();
   const sortRef = useRef<HTMLDivElement>(null);
 
@@ -90,4 +90,4 @@ const SortPopup: React.FC<SortPopupProps> = memo(({ value }) => {
   );
 });
 
-export default SortPopup;
+export default Sort;
