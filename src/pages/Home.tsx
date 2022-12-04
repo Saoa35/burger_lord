@@ -1,19 +1,14 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Card, Skeleton, Categories, Pagination, Sort } from "../components";
-import qs from "qs";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../redux/store";
 import { selectFilter } from "../redux/filter/selectors";
 import { selectBurgerData } from "../redux/burger/selectors";
 import { setCategoryId, setCurrentPage } from "../redux/filter/slice";
 import { fetchBurgers } from "../redux/burger/asyncActions";
-import { SearchBurgerParams } from "../redux/burger/types";
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const isMounted = useRef(false);
 
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
@@ -48,57 +43,12 @@ const Home: React.FC = () => {
   };
 
   useEffect(() => {
-    if (isMounted.current) {
-      const params = {
-        sortProperty: sort.sortProperty,
-        categoryId: categoryId > 0 ? categoryId : null,
-        currentPage,
-      };
-
-      const queryString = qs.stringify(params, { skipNulls: true });
-
-      navigate(`/?${queryString}`);
-    }
-
-    if (!window.location.search) {
-      dispatch(fetchBurgers({} as SearchBurgerParams));
-    }
-  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
-
-  useEffect(() => {
     getBurgers();
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  // useEffect(() => {
-  //   if (!window.location.search) {
-  //     const params = qs.parse(
-  //       window.location.search.substring(1)
-  //     ) as unknown as SearchBurgerParams;
-  //     const sort = list.find((obj) => obj.sortProperty === params.sortBy);
+  const burgers = items.map((obj: any) => <Card {...obj} key={obj.id} />);
 
-  //     dispatch(
-  //       setFilters({
-  //         searchValue: params.search,
-  //         categoryId: Number(params.category),
-  //         currentPage: Number(params.currentPage),
-  //         sort: sort || list[0],
-  //       })
-  //     );
-  //   }
-
-  //   isMounted.current = true;
-  // }, []);
-
-  const burgers = items
-    // .filter((object) => {
-    //   if (object.title.toLowerCase().includes(searchValue.toLowerCase())) {
-    //     return true;
-    //   }
-    //   return false;
-    // })
-    .map((obj: any) => <Card {...obj} key={obj.id} />);
-
-  const skeletons = [...Array(6)].map((_, i) => <Skeleton key={i} />);
+  const skeletons = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
 
   return (
     <div className="container">
