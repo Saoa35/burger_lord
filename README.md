@@ -1,4 +1,17 @@
-This project creates a burger restaurant website, it was made by using HTML, CSS, ReactJS, ReduxToolkit and TypeScript.
+Burger restaurant website. 
+Stack: 
+ReactJS 18,
+TypeScript,
+Redux Toolkit,
+React Router,
+Axios + Fetch,
+React Hooks,
+Prettier,
+CSS-Modules / SCSS,
+React Content Loader,
+React Pagination,
+Lodash.Debounce,
+Code Splitting, React Loadable, useWhyDidYouUpdate
 
 
 ![bur_1](https://user-images.githubusercontent.com/78507597/206796661-9d7ded8b-3575-4e34-9143-b7996536f6e3.png)
