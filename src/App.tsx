@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
-import "./scss/app.scss";
+import "./scss/App.scss";
 
 const Cart = lazy(() => import(/* webpackChunkName: 'Cart' */ "./pages/Cart"));
 const FullBurger = lazy(
