@@ -1,4 +1,4 @@
-Burger restaurant website. 
+This is Burger restaurant website. Implemented the ability to select a burger plus an addition to it, a basket is also implemented where the number of selected burgers and the total amount of the selected product are counted, sorting and search are also implemented.
 Stack: 
 ReactJS 18,
 TypeScript,
