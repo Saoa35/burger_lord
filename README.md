@@ -1,5 +1,5 @@
 This is Burger restaurant website. Implemented the ability to select a burger, plus an addition to it,  also implemented a basket, where the number of selected burgers and the total amount of the selected product are counted, sorting and search are also implemented.
-Stack: 
+It was created by using: 
 ReactJS 18,
 TypeScript,
 Redux Toolkit,
